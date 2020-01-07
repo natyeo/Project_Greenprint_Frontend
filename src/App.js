@@ -7,7 +7,7 @@ import JourneyOptions from './components/journeyoptions.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = [];
   }
 
   getOptions = (data) => {
@@ -24,13 +24,11 @@ class App extends React.Component {
         </header>
 
         <body>
-          <h1><Welcome name="Sara" /></h1>
+          <Welcome name="Sara" />
             <div>
-            <JourneyForm />
+            <JourneyForm options={this.getOptions}/>
             </div>
-            <div>
-            <JourneyOptions />
-            </div>
+            <JourneyOptions journey={this.state.to}/>
         </body>
       </div>
     );

@@ -6,6 +6,7 @@ class JourneyOptions extends React.Component {
             <div>
                 <br></br>
                 These are your options:
+                {this.props.journey}
              </div>
         );
     }

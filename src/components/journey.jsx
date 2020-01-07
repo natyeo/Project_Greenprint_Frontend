@@ -8,12 +8,9 @@ class JourneyForm extends React.Component {
       from: '',
       to: ''
     };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
 
@@ -32,15 +29,13 @@ class JourneyForm extends React.Component {
         "Access-Control-Allow-Origin": "*"
       },
       body: JSON.stringify(data)
-    }).then(function (promise) {
-      return promise.json()
-    }).then(function (APIresponse) {
-      console.log(APIresponse)
-      
-    })
-  }
+    }).then((promise) => promise.json())
+    .then((APIresponse) => {
+      this.props.options(APIresponse)
+  })
+}
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     this.apiCall();
     event.preventDefault();
   }
