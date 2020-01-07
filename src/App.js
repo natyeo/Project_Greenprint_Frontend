@@ -14,7 +14,6 @@ function App() {
           <div>
           <JourneyForm />
           </div>
-
       </body>
     </div>
   );

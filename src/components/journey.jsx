@@ -22,7 +22,20 @@ class JourneyForm extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('An address was submitted: ' + this.state.from + ' to ' + this.state.to);
+    const data = this.state
+    fetch('https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/', {
+      method: 'POST',
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      },
+      body: JSON.stringify(data)
+    }).then(function (promise) {
+      return promise.json()
+    }).then(function (response) {
+      console.log(response.to)
+    })
     event.preventDefault();
   }
 
