@@ -1,4 +1,5 @@
 import React from 'react';
+import JourneyOptions from './journeyoptions';
 
 class JourneyForm extends React.Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class JourneyForm extends React.Component {
     });
   }
 
-  handleSubmit(event) {
+  apiCall() {
     const data = this.state
     fetch('https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/', {
       method: 'POST',
@@ -33,9 +34,14 @@ class JourneyForm extends React.Component {
       body: JSON.stringify(data)
     }).then(function (promise) {
       return promise.json()
-    }).then(function (response) {
-      console.log(response.to)
+    }).then(function (APIresponse) {
+      console.log(APIresponse)
+      
     })
+  }
+
+  handleSubmit(event) {
+    this.apiCall();
     event.preventDefault();
   }
 
