@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Welcome from './components/welcome.jsx';
+import JourneyForm from './components/journey.jsx';
 
 function App() {
   return (
@@ -9,9 +10,11 @@ function App() {
       </header>
 
       <body>
-        <div>
-          <Welcome name="Sara" />
+        <h1><Welcome name="Sara" /></h1>
+          <div>
+          <JourneyForm />
           </div>
+
       </body>
     </div>
   );
