@@ -1,12 +1,11 @@
 import React from 'react';
 
 class JourneyOptions extends React.Component {
-    render() {
+     render() {
         return (
             <div>
                 <br></br>
-                These are your options:
-                {this.props.journey}
+              These are your options: {this.props.journeys}
              </div>
         );
     }

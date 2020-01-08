@@ -6,7 +6,8 @@ class JourneyForm extends React.Component {
     super(props);
     this.state = {
       from: '',
-      to: ''
+      to: '',
+      options:{}
     };
   }
 
@@ -19,8 +20,8 @@ class JourneyForm extends React.Component {
     });
   }
 
-  apiCall() {
-    const data = this.state
+ apiCall() {
+    const data = {from: this.state.from , to: this.state.to}
     fetch('https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/', {
       method: 'POST',
       headers: {
@@ -29,9 +30,11 @@ class JourneyForm extends React.Component {
         "Access-Control-Allow-Origin": "*"
       },
       body: JSON.stringify(data)
-    }).then((promise) => promise.json())
-    .then((APIresponse) => {
-      this.props.options(APIresponse)
+    }).then((data) => console.log(data) || data.json())
+    .then((body) => {
+      this.setState({
+        options: body
+      });
   })
 }
 
@@ -42,6 +45,7 @@ class JourneyForm extends React.Component {
 
   render() {
     return (
+    <div>
       <form onSubmit={this.handleSubmit}>
         <label>
           From:
@@ -53,7 +57,12 @@ class JourneyForm extends React.Component {
           </label>
         <input type="submit" value="Submit" />
       </form>
-    );
+
+       <div>
+       <JourneyOptions journeys ={this.state.options.from}/>
+       </div>
+     </div>
+    )
   }
 }
 
