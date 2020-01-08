@@ -32,14 +32,14 @@ class JourneyForm extends React.Component {
       },
       body: JSON.stringify(data)
     })
-    .then((data) =>  data.json())
-    .then((body) => {
-      this.setState({
-        loading: false,
-        options: body
-      });
-    })
-  }
+      .then((data) =>  data.json())
+      .then((body) => {
+        this.setState({
+          loading: false,
+          options: body
+        });
+      })
+    }
 
   handleSubmit = (event) => {
     this.apiCall();
@@ -49,23 +49,24 @@ class JourneyForm extends React.Component {
   render() {
     if (this.state.loading) {
       return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            From:
-            <input name="from" type="text" value={this.state.from} onChange={this.handleChange} />
-          </label>
-          <label>
-            To:
-            <input name="to" type="text" value={this.state.to} onChange={this.handleChange} />
+        <div>
+          <form onSubmit={this.handleSubmit}>
+            <label>
+              From:
+              <input name="from" type="text" value={this.state.from} onChange={this.handleChange} />
             </label>
-          <input type="submit" value="Submit" />
-        </form>
-        </div> )
-    } else {
+            <label>
+              To:
+              <input name="to" type="text" value={this.state.to} onChange={this.handleChange} />
+            </label>
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      );
+      } else {
       return (
         <div>
-        <JourneyOptions journeys ={this.state.options.walking[0].mode}/>
+          <JourneyOptions journeys ={this.state.options.walking[0].mode}/>
         </div>
       );
     }
