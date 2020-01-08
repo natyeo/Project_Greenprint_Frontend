@@ -25,7 +25,7 @@ describe('test api gets called  ', () => {
 
     const journeyForm = new JourneyForm();
     console.log(journeyForm)
-    fetch.mockResponseOnce(JSON.stringify({ body: {from:'London', to: 'Berlin'}}))
+    // fetch.mockResponseOnce(JSON.stringify({ body: {from:'London', to: 'Berlin'}}))
 
     //assert on the response
     journeyForm.apiCall('api url')
