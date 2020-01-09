@@ -34,8 +34,9 @@ class JourneyForm extends React.Component {
       .then((data) =>  data.json())
       .then((body) => {
         this.setState({
-          options: body
+          options: body.results
         });
+        console.log(body)
         return body
       })
     }
@@ -43,6 +44,12 @@ class JourneyForm extends React.Component {
   handleSubmit = (event) => {
     this.apiCall();
     event.preventDefault();
+  }
+
+  journeyOptionsList() {
+    return this.state.options.map(function(i){
+      return <JourneyOptions key={i}/>
+    })
   }
 
   render() {
@@ -65,9 +72,21 @@ class JourneyForm extends React.Component {
       } else {
       return (
         <div>
-          <JourneyOptions journeys ={this.state.options.walking[0].mode} distance ={this.state.options.walking[0].distance} time ={this.state.options.walking[0].travel_time} carbon ={this.state.options.walking[0].carbon} /><button>Select</button>
-          <JourneyOptions journeys ={this.state.options.cycling[0].mode} distance ={this.state.options.cycling[0].distance} time ={this.state.options.cycling[0].travel_time} carbon ={this.state.options.cycling[0].carbon} /><button>Select</button>
-          <JourneyOptions journeys ={this.state.options.car[0].mode} distance ={this.state.options.car[0].distance} time ={this.state.options.car[0].travel_time} carbon ={this.state.options.car[0].carbon} /><button>Select</button>
+            <h2>Your options:</h2>
+            <table className="table">
+              <thead>
+                  <tr>
+                    <th>Mode</th>
+                    <th>Travel time</th>
+                    <th>Distance</th>
+                    <th>Carbon</th>
+                  </tr>
+              </thead>
+              <tbody>
+                {this.journeyOptionsList() }
+                {/* <JourneyOptions journeys ={this.state.options[0].mode} ime ={this.state.options[0].travel_time} distance ={this.state.options[0].distance} tcarbon ={this.state.options[0].carbon} /><button>Select</button> */}
+              </tbody>
+            </table>
         </div>
       );
     }
