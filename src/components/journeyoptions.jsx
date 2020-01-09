@@ -8,7 +8,7 @@ class JourneyOptions extends React.Component {
             <td>{this.props.results.travel_time}</td>
             <td>{this.props.results.distance}</td>
             <td>{this.props.results.carbon}</td>
-            <td><button>Select</button></td>
+            <td><button id={this.props.results.mode}>Select</button></td>
         </tr>
     );
   }

@@ -22,7 +22,7 @@ class JourneyForm extends React.Component {
 
   apiCall() {
     const data = {from: this.state.from , to: this.state.to}
-    // remember to change the route below when not testing
+    // remember to change the route below for production
     return fetch('https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/test-route', {
       method: 'POST',
       headers: {
@@ -79,8 +79,8 @@ class JourneyForm extends React.Component {
                     <tr>
                       <th>Mode</th>
                       <th>Travel time</th>
-                      <th>Distance</th>
-                      <th>Carbon</th>
+                      <th>Distance (in miles)</th>
+                      <th>Carbon (in kg)</th>
                       <th></th>
                     </tr>
                 </thead>
