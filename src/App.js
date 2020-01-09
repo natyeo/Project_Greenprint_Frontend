@@ -10,13 +10,10 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
         </header>
-
-        <body>
-          <Welcome name="Sara" />
+          <Welcome name="there" />
             <div>
             <JourneyForm />
             </div>
-        </body>
       </div>
     );
   }
