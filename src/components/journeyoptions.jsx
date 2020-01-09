@@ -3,14 +3,13 @@ import React from 'react';
 class JourneyOptions extends React.Component {
   render() {
     return (
-      <div>
         <tr>
-            <td>{this.props.journeys}</td>
-            <td>{this.props.time}</td>
-            <td>{this.props.distance}</td>
-            <td>{this.props.carbon}</td>
+            <td>{this.props.results.mode}</td>
+            <td>{this.props.results.travel_time}</td>
+            <td>{this.props.results.distance}</td>
+            <td>{this.props.results.carbon}</td>
+            <td><button>Select</button></td>
         </tr>
-      </div>
     );
   }
 }

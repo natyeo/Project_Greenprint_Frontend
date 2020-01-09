@@ -22,7 +22,8 @@ class JourneyForm extends React.Component {
 
   apiCall() {
     const data = {from: this.state.from , to: this.state.to}
-    return fetch('https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/', {
+    // remember to change the route below when not testing
+    return fetch('https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/test-route', {
       method: 'POST',
       headers: {
         "Accept": "application/json",
@@ -36,7 +37,6 @@ class JourneyForm extends React.Component {
         this.setState({
           options: body.results
         });
-        console.log(body)
         return body
       })
     }
@@ -47,15 +47,16 @@ class JourneyForm extends React.Component {
   }
 
   journeyOptionsList() {
-    return this.state.options.map(function(i){
-      return <JourneyOptions key={i}/>
+    return this.state.options.map(function(elem, i){
+      return <JourneyOptions results={elem} key={i}/>
     })
   }
 
   render() {
-    if (!this.state.options) {
-      return (
+    return (
+      <div>
         <div>
+          <h3>Enter your start and end location:</h3>
           <form onSubmit={this.handleSubmit}>
             <label>
               From:
@@ -68,28 +69,30 @@ class JourneyForm extends React.Component {
             <input type="submit" value="Submit" />
           </form>
         </div>
-      );
-      } else {
-      return (
-        <div>
-            <h2>Your options:</h2>
-            <table className="table">
-              <thead>
-                  <tr>
-                    <th>Mode</th>
-                    <th>Travel time</th>
-                    <th>Distance</th>
-                    <th>Carbon</th>
-                  </tr>
-              </thead>
-              <tbody>
-                {this.journeyOptionsList() }
-                {/* <JourneyOptions journeys ={this.state.options[0].mode} ime ={this.state.options[0].travel_time} distance ={this.state.options[0].distance} tcarbon ={this.state.options[0].carbon} /><button>Select</button> */}
-              </tbody>
-            </table>
-        </div>
-      );
-    }
+      
+        { this.state.options ?
+        
+          <div>
+              <h3>Your travel options:</h3>
+              <table className="table table-striped" style={{marginTop: 20, textAlign: "center", marginLeft: "auto", marginRight: "auto"}} >
+                <thead>
+                    <tr>
+                      <th>Mode</th>
+                      <th>Travel time</th>
+                      <th>Distance</th>
+                      <th>Carbon</th>
+                      <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                  {this.journeyOptionsList() }
+                </tbody>
+              </table>
+          </div> : 
+          <> </>
+        } 
+      </div>
+    )
   }
 }
 
