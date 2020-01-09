@@ -72,7 +72,7 @@ class JourneyForm extends React.Component {
       
         { this.state.options ?
         
-          <div>
+          <div id="list">
               <h3>Your travel options:</h3>
               <table className="table table-striped" style={{marginTop: 20, textAlign: "center", marginLeft: "auto", marginRight: "auto"}} >
                 <thead>
