@@ -5,7 +5,10 @@ class JourneyOptions extends React.Component {
     return (
       <div>
         <br></br>
-        These are your options: {this.props.journeys}
+        Journey type: {this.props.journeys} <br></br>
+        travel time: {this.props.time}<br></br>
+        distance: {this.props.distance}<br></br>
+        carbon: {this.props.carbon}<br></br>
       </div>
     );
   }

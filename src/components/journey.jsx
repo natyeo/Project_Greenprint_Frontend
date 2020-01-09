@@ -5,10 +5,9 @@ class JourneyForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: true,
       from: '',
       to: '',
-      options:{}
+      options: false
     };
   }
 
@@ -21,7 +20,7 @@ class JourneyForm extends React.Component {
     });
   }
 
- apiCall() {
+  apiCall() {
     const data = {from: this.state.from , to: this.state.to}
     return fetch('https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/', {
       method: 'POST',
@@ -35,9 +34,9 @@ class JourneyForm extends React.Component {
       .then((data) =>  data.json())
       .then((body) => {
         this.setState({
-          loading: false,
           options: body
         });
+        return body
       })
     }
 
@@ -47,7 +46,7 @@ class JourneyForm extends React.Component {
   }
 
   render() {
-    if (this.state.loading) {
+    if (!this.state.options) {
       return (
         <div>
           <form onSubmit={this.handleSubmit}>
@@ -66,7 +65,9 @@ class JourneyForm extends React.Component {
       } else {
       return (
         <div>
-          <JourneyOptions journeys ={this.state.options.walking[0].mode}/>
+          <JourneyOptions journeys ={this.state.options.walking[0].mode} distance ={this.state.options.walking[0].distance} time ={this.state.options.walking[0].travel_time} carbon ={this.state.options.walking[0].carbon} /><button>Select</button>
+          <JourneyOptions journeys ={this.state.options.cycling[0].mode} distance ={this.state.options.cycling[0].distance} time ={this.state.options.cycling[0].travel_time} carbon ={this.state.options.cycling[0].carbon} /><button>Select</button>
+          <JourneyOptions journeys ={this.state.options.car[0].mode} distance ={this.state.options.car[0].distance} time ={this.state.options.car[0].travel_time} carbon ={this.state.options.car[0].carbon} /><button>Select</button>
         </div>
       );
     }

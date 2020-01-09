@@ -19,13 +19,12 @@ describe('test api gets called  ', () => {
   it('calls api url and returns data to me', () => {
 
     const journeyForm = new JourneyForm();
-    console.log(journeyForm)
     fetch.mockResponseOnce(JSON.stringify({ body: {from:'London', to: 'Berlin'}}))
 
     //assert on the response
-    journeyForm.apiCall('api url')
+    journeyForm.apiCall()
     .then(res => {
-      expect(res).toEqual({from:'London', to: 'Berlin'})
+      expect(res.body).toEqual({"from":"London", "to": "Berlin"})
     })
 
     //assert on the times called and arguments given to fetch
