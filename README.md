@@ -3,7 +3,7 @@
 
 ---
 
-###Testing
+### Testing
 
 To run Cypress testing:
 ```npx cypress open```
