@@ -1,5 +1,7 @@
 import React from 'react';
 import JourneyOptions from './journeyoptions';
+import './journey.css';
+import Modal from './Modal/Modal';
 
 class JourneyForm extends React.Component {
   constructor(props) {
@@ -7,7 +9,8 @@ class JourneyForm extends React.Component {
     this.state = {
       from: '',
       to: '',
-      options: false
+      options: false,
+      loading: false
     };
   }
 
@@ -35,7 +38,8 @@ class JourneyForm extends React.Component {
       .then((data) =>  data.json())
       .then((body) => {
         this.setState({
-          options: body.results
+          options: body.results,
+          loading: false
         });
         return body
       })
@@ -43,6 +47,7 @@ class JourneyForm extends React.Component {
 
   handleSubmit = (event) => {
     this.apiCall();
+    this.setState({loading: true})
     event.preventDefault();
   }
 
@@ -93,6 +98,13 @@ class JourneyForm extends React.Component {
           </div> :
           <> </>
         }
+              { this.state.loading ?
+               
+         
+        // <> </> :
+        <Modal /> :
+        <> </>
+      }
       </div>
     )
   }
