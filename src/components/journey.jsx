@@ -47,8 +47,10 @@ class JourneyForm extends React.Component {
   }
 
   journeyOptionsList() {
+    const startPoint = this.state.from
+    const endPoint = this.state.to
     return this.state.options.map(function(elem, i){
-      return <JourneyOptions results={elem} key={i}/>
+      return <JourneyOptions results={elem} key={i} from={startPoint} to={endPoint}/>
     })
   }
 
@@ -66,15 +68,15 @@ class JourneyForm extends React.Component {
               To:
               <input name="to" type="text" value={this.state.to} onChange={this.handleChange} />
             </label>
-            <input type="submit" value="Submit" />
+            <input className="ui button" type="submit" value="Submit" />
           </form>
         </div>
-      
+
         { this.state.options ?
-        
+
           <div id="list">
               <h3>Your travel options:</h3>
-              <table className="table table-striped" style={{marginTop: 20, textAlign: "center", marginLeft: "auto", marginRight: "auto"}} >
+              <table className="ui celled table" style={{textAlign: "center"}} >
                 <thead>
                     <tr>
                       <th>Mode</th>
@@ -88,9 +90,9 @@ class JourneyForm extends React.Component {
                   {this.journeyOptionsList() }
                 </tbody>
               </table>
-          </div> : 
+          </div> :
           <> </>
-        } 
+        }
       </div>
     )
   }
