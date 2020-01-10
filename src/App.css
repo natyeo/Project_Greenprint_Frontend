@@ -1,13 +1,11 @@
 .App {
-  height: 75vh;
+  height: 100%;
+  width: 75vw;
   background-color: #5B7355;
   border-radius: 20px;
   padding: 50px;
   box-shadow: 0px 14px 28px #41523b, 0px 10px 10px #3a4b35;
-}
-
-h1 {
-  margin: 0;
+  text-align: center;
 }
 
 
