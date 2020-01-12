@@ -32,7 +32,7 @@ class Register extends Component {
     //
     fetch(
       // "https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/travel/register",
-      "http://localhost:5678/travel/register",
+      "https://cors-anywhere.herokuapp.com/http://localhost:5678/travel/register",
       {
         method: "POST",
         headers: {
@@ -51,14 +51,13 @@ class Register extends Component {
   render() {
     const { username, email, password, password2 } = this.state;
     return (
-      <div class="container">
+      <div>
         <form onSubmit={this.onSubmit}>
           <h2>Register</h2>
 
           <label>Username</label>
           <input
             type="text"
-            class="form-control"
             placeholder="User Name"
             name="username"
             value={username}
@@ -69,7 +68,6 @@ class Register extends Component {
           <label>Email</label>
           <input
             type="email"
-            class="form-control"
             placeholder="Email address"
             name="email"
             value={email}
@@ -80,7 +78,6 @@ class Register extends Component {
           <label>Password</label>
           <input
             type="password"
-            class="form-control"
             placeholder="Password"
             name="password"
             value={password}
@@ -91,17 +88,14 @@ class Register extends Component {
           <label>Password</label>
           <input
             type="password"
-            class="form-control"
             placeholder="Repeat Your Password"
-            name="password"
+            name="password2"
             value={password2}
             onChange={this.onChange}
             required
           />
           <br />
-          <button class="btn btn-lg btn-primary btn-block" type="submit">
-            Register
-          </button>
+          <button type="submit">Register</button>
         </form>
       </div>
     );
