@@ -6,10 +6,6 @@ input {
   width: 200px;
 }
 
-.ui.form input[type=text], .ui.form input[type=text]:hover, .ui.form input[type=text]:focus, .ui.form input[type=text]:active {
-  background-color: rgb(241, 221, 203);
-}
-
 .ui .button, .ui.button:hover {
   background-color: #D9AC84;
   color: black;
