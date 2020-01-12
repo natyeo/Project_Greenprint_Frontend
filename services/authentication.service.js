@@ -17,3 +17,9 @@ function loggedIn() {
   // token exists && is not expired
   return !!token;
 }
+
+function decodeTokenGetId() {
+  const decodedToken = decode(getToken());
+  return decodedToken.id;
+  // return decodedTokem.name
+}
