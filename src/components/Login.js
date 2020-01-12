@@ -11,6 +11,54 @@ class Login extends Component {
       message: ""
     };
   }
+
+  render() {
+    const { email, password, message } = this.state;
+    return (
+      <div>
+        <form onSubmit={this.onSubmit}>
+          {message !== "" && (
+            <div class="alert alert-warning alert-dismissible" role="alert">
+              {message}
+            </div>
+          )}
+
+          <h2>Please sign in</h2>
+
+          <label>Email address</label>
+          <input
+            type="email"
+            placeholder="Email address"
+            name="email"
+            value={email}
+            onChange={this.onChange}
+            required
+          />
+
+          <label>Password</label>
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            value={password}
+            onChange={this.onChange}
+            required
+          />
+          <button type="submit">Login</button>
+          <p>
+            Not a member?{" "}
+            <Link to="/register">
+              <span
+                class="glyphicon glyphicon-plus-sign"
+                aria-hidden="true"
+              ></span>{" "}
+              Register here
+            </Link>
+          </p>
+        </form>
+      </div>
+    );
+  }
 }
 
 export default Login;
