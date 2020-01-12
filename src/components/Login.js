@@ -18,6 +18,42 @@ class Login extends Component {
     this.setState(state);
   };
 
+  onSubmit = e => {
+    e.preventDefault();
+    const data = {
+      email: this.state.email,
+      password: this.state.password
+    };
+
+    fetch(
+      // "https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/travel/register",
+      "https://cors-anywhere.herokuapp.com/http://localhost:5678/travel/login",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*"
+        },
+        body: JSON.stringify(data)
+      }
+    )
+      .then(data => data.json())
+      .then(body => {
+        // userService.setToken(body.token);
+        localStorage.setItem("jwtToken", body.token);
+        this.setState({ message: "" });
+        this.props.history.push("/");
+      })
+      .catch(error => {
+        if (error.response.status === 401) {
+          this.setState({
+            message: "Login failed. Username or password not match"
+          });
+        }
+      });
+  };
+
   render() {
     const { email, password, message } = this.state;
     return (
