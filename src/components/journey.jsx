@@ -1,5 +1,7 @@
 import React from 'react';
 import JourneyOptions from './journeyoptions';
+import './journey.css';
+import Modal from './Modal/Modal';
 
 class JourneyForm extends React.Component {
   constructor(props) {
@@ -7,7 +9,8 @@ class JourneyForm extends React.Component {
     this.state = {
       from: '',
       to: '',
-      options: false
+      options: false,
+      loading: false
     };
   }
 
@@ -35,7 +38,8 @@ class JourneyForm extends React.Component {
       .then((data) =>  data.json())
       .then((body) => {
         this.setState({
-          options: body.results
+          options: body.results,
+          loading: false
         });
         return body
       })
@@ -43,6 +47,7 @@ class JourneyForm extends React.Component {
 
   handleSubmit = (event) => {
     this.apiCall();
+    this.setState({loading: true})
     event.preventDefault();
   }
 
@@ -57,42 +62,45 @@ class JourneyForm extends React.Component {
   render() {
     return (
       <div>
-        <div>
-          <h3>Enter your start and end location:</h3>
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              From:
-              <input name="from" type="text" value={this.state.from} onChange={this.handleChange} />
-            </label>
-            <label>
-              To:
-              <input name="to" type="text" value={this.state.to} onChange={this.handleChange} />
-            </label>
-            <input className="ui button" type="submit" value="Submit" />
+
+        <div className="grouping">
+          <h3>Journey Calculation</h3>
+          <form onSubmit={this.handleSubmit} className="ui form">
+            <div>
+              <label>
+                <span className="bold">FROM</span>
+                <input name="from" type="text" value={this.state.from} onChange={this.handleChange} />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span className="bold">TO</span>
+                <input name="to" type="text" value={this.state.to} onChange={this.handleChange} />
+              </label>
+            </div>
+            <div>
+              <input className="ui button" type="submit" value="Submit" />
+            </div>
           </form>
         </div>
 
         { this.state.options ?
 
-          <div>
-              <h3>Your travel options:</h3>
-              <table className="ui celled table" style={{textAlign: "center"}} >
-                <thead>
-                    <tr>
-                      <th>Mode</th>
-                      <th>Travel time</th>
-                      <th>Distance (in miles)</th>
-                      <th>Carbon (in kg)</th>
-                      <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                  {this.journeyOptionsList() }
-                </tbody>
-              </table>
+          <div className="grouping results">
+            <h3>Your travel results</h3>
+            <table className="ui celled striped table" style={{textAlign: "center"}} >
+              <tbody>
+                {this.journeyOptionsList() }
+              </tbody>
+            </table>
           </div> :
           <> </>
         }
+        { this.state.loading ?
+               
+        <Modal /> :
+        <> </>
+      }
       </div>
     )
   }
