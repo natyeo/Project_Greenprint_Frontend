@@ -21,6 +21,33 @@ class Register extends Component {
     this.setState(state);
   };
 
+  onSubmit = e => {
+    e.preventDefault();
+    const data = {
+      username: this.state.username,
+      email: this.state.email,
+      password: this.state.password,
+      password2: this.state.password2
+    };
+    //
+    fetch(
+      // "https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/travel/register",
+      "http://localhost:5678/travel/register",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*"
+        },
+        body: JSON.stringify(data)
+      }
+    );
+    // .then(result => {
+    //   this.props.history.push("/");
+    // });
+  };
+
   render() {
     const { username, email, password, password2 } = this.state;
     return (
