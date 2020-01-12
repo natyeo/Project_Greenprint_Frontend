@@ -11,3 +11,9 @@ function getToken() {
 function logout() {
   localStorage.removeItem("jwtToken");
 }
+
+function loggedIn() {
+  const token = this.getToken();
+  // token exists && is not expired
+  return !!token;
+}
