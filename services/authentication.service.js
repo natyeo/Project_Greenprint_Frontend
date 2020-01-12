@@ -7,3 +7,7 @@ function setToken(token) {
 function getToken() {
   return localStorage.getItem("jwtToken");
 }
+
+function logout() {
+  localStorage.removeItem("jwtToken");
+}
