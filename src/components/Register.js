@@ -32,7 +32,7 @@ class Register extends Component {
             onChange={this.onChange}
             required
           />
-
+          <br />
           <label>Email</label>
           <input
             type="email"
@@ -43,7 +43,7 @@ class Register extends Component {
             onChange={this.onChange}
             required
           />
-
+          <br />
           <label>Password</label>
           <input
             type="password"
@@ -54,7 +54,7 @@ class Register extends Component {
             onChange={this.onChange}
             required
           />
-
+          <br />
           <label>Password</label>
           <input
             type="password"
@@ -65,7 +65,7 @@ class Register extends Component {
             onChange={this.onChange}
             required
           />
-
+          <br />
           <button class="btn btn-lg btn-primary btn-block" type="submit">
             Register
           </button>
