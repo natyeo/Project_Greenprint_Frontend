@@ -1,0 +1,37 @@
+form div {
+  margin-top: 10px;
+}
+
+input {
+  width: 200px;
+}
+
+.ui.form input[type=text], .ui.form input[type=text]:hover, .ui.form input[type=text]:focus, .ui.form input[type=text]:active {
+  background-color: rgb(241, 221, 203);
+}
+
+.ui .button, .ui.button:hover {
+  background-color: #D9AC84;
+  color: black;
+}
+
+.grouping {
+  box-sizing: border-box;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #5B7355;
+  border-radius: 10px;
+  box-shadow: 0px 14px 28px #41523b, 0px 10px 10px #3a4b35;
+}
+
+.ui.form input[type=text]:focus {
+  border-color: #465940;
+}
+.ui.striped.table tbody tr:nth-child(2n), .ui.striped.table>tr:nth-child(2n) {
+  background-color: rgb(241, 221, 203);
+}
+
+.ui.table {
+  background-color: #F2D5BB;
+}
+

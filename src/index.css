@@ -1,9 +1,8 @@
 html {
-  background: rgb(61, 78, 56);
+  background-color: #465940;
 }
 
 body {
-  height: 100%;
   font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -11,14 +10,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
   color: #D9AC84;
-  background: rgb(91,115,85);
-  background: linear-gradient(0deg, rgba(91,115,85,1) 0%, rgba(61,78,56,1) 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: transparent;
 }
 
 h1 {
   font-family: 'Economica', sans-serif;
   font-size: 3rem;
+}
+
+.bold {
+  font-weight: bold;
 }

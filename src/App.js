@@ -9,9 +9,9 @@ class App extends React.Component {
     return (
       <div className="App">
           <Welcome name="there" />
-            <div>
+          <div className="journey-planner">
             <JourneyForm />
-            </div>
+          </div>
       </div>
     );
   }
