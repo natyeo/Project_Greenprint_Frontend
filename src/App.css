@@ -3,6 +3,15 @@
   text-align: center;
 }
 
+@media (min-width: 768px){
+
+  .journey-planner {
+    width: 75%;
+    margin: auto;
+  }
+
+}
+
 
 
 
