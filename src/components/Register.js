@@ -55,6 +55,17 @@ class Register extends Component {
             required
           />
 
+          <label>Password</label>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Repeat Your Password"
+            name="password"
+            value={password2}
+            onChange={this.onChange}
+            required
+          />
+
           <button class="btn btn-lg btn-primary btn-block" type="submit">
             Register
           </button>
