@@ -15,6 +15,12 @@ class Register extends Component {
     };
   }
 
+  onChange = e => {
+    const state = this.state;
+    state[e.target.name] = e.target.value;
+    this.setState(state);
+  };
+
   render() {
     const { username, email, password, password2 } = this.state;
     return (
