@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
+import { userService } from "../services/authentication.service";
 
 class Login extends Component {
   constructor() {
@@ -40,8 +41,8 @@ class Login extends Component {
     )
       .then(data => data.json())
       .then(body => {
-        // userService.setToken(body.token);
-        localStorage.setItem("jwtToken", body.token);
+        userService.setToken(body.token);
+        // localStorage.setItem("jwtToken", body.token);
         this.setState({ message: "" });
         this.props.history.push("/");
       })
