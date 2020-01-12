@@ -44,6 +44,17 @@ class Register extends Component {
             required
           />
 
+          <label>Password</label>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Password"
+            name="password"
+            value={password}
+            onChange={this.onChange}
+            required
+          />
+
           <button class="btn btn-lg btn-primary btn-block" type="submit">
             Register
           </button>
