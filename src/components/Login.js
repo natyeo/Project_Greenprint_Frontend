@@ -24,7 +24,6 @@ class Login extends Component {
           )}
 
           <h2>Please sign in</h2>
-
           <label>Email address</label>
           <input
             type="email"
@@ -45,6 +44,8 @@ class Login extends Component {
             onChange={this.onChange}
             required
           />
+          <br />
+
           <button type="submit">Login</button>
           <p>
             Not a member?{" "}
