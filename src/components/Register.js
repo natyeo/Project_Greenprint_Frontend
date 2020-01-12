@@ -33,6 +33,17 @@ class Register extends Component {
             required
           />
 
+          <label>Email</label>
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Email address"
+            name="email"
+            value={email}
+            onChange={this.onChange}
+            required
+          />
+
           <button class="btn btn-lg btn-primary btn-block" type="submit">
             Register
           </button>
