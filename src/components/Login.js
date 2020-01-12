@@ -34,6 +34,7 @@ class Login extends Component {
             onChange={this.onChange}
             required
           />
+          <br />
 
           <label>Password</label>
           <input
@@ -48,11 +49,7 @@ class Login extends Component {
           <p>
             Not a member?{" "}
             <Link to="/register">
-              <span
-                class="glyphicon glyphicon-plus-sign"
-                aria-hidden="true"
-              ></span>{" "}
-              Register here
+              <span aria-hidden="true"></span> Register here
             </Link>
           </p>
         </form>
