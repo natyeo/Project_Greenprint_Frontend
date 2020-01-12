@@ -2,7 +2,28 @@ import React from "react";
 import { userService } from "../services/authentication.service";
 
 class JourneyOptions extends React.Component {
-  saveJourneyToDB;
+  saveJourneyToDB = () => {
+    // not sure if it's work by call prop in a function
+    const id = userService.decodeTokenGetId();
+    const data = {
+      mode: this.props.results.mode,
+      distance: this.props.results.distance,
+      carbon: this.props.results.carbon,
+      id: id
+    };
+    fetch(
+      "https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/travel/record",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*"
+        },
+        body: JSON.stringify(data)
+      }
+    );
+  };
 
   render() {
     return (
