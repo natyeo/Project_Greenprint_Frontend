@@ -23,3 +23,11 @@ function decodeTokenGetId() {
   return decodedToken.id;
   // return decodedTokem.name
 }
+
+export const userService = {
+  setToken: setToken,
+  getToken: getToken,
+  loggedIn: loggedIn,
+  logout: logout,
+  decodeTokenGetId: decodeTokenGetId
+};
