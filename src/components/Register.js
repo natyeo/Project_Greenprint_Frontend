@@ -31,8 +31,8 @@ class Register extends Component {
     };
     //
     fetch(
-      // "https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/travel/register",
-      "https://cors-anywhere.herokuapp.com/http://localhost:5678/travel/register",
+      "https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/user/register",
+      // "https://cors-anywhere.herokuapp.com/http://localhost:5678/travel/register",
       {
         method: "POST",
         headers: {
