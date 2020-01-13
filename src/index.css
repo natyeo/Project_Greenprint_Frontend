@@ -1,5 +1,8 @@
 html {
   background-color: #465940;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 body {
@@ -18,6 +21,19 @@ h1 {
   font-size: 3rem;
 }
 
+#root {
+  width: 100%;
+}
+
 .bold {
   font-weight: bold;
+}
+
+ul {
+  padding: 0;
+}
+
+
+li {
+  list-style-type: none;
 }

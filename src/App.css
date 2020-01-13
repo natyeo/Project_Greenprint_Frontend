@@ -1,11 +1,12 @@
 .App {
-  padding: 0 0 10px 0;
+  padding: 0;
   text-align: center;
+  height: 100%;
 }
 
 .about-app {
   width: 80%;
-  margin: auto;
+  margin: 5% auto 0 auto;
 }
 
 @media (min-width: 768px){

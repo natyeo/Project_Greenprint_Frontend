@@ -1,0 +1,22 @@
+.ui.footer.segment {
+  background: #5B7355;
+  color: #D9AC84;
+  text-align: justify;
+  margin-top: 30px;
+}
+
+.ui.height.grid.tagline {
+  border-top: 1px solid #D9AC84;
+  padding: 5px;
+  
+}
+
+.ui.height.grid{
+  padding: 0 5%;
+}
+
+.ui.height.grid.tagline > p{
+  text-align: center;
+  margin: 0;
+  width: 100%;
+}
