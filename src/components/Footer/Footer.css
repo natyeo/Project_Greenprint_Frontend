@@ -4,18 +4,17 @@
   text-align: justify;
 }
 
-.ui.height.grid.tagline {
+.tagline {
   border-top: 1px solid #D9AC84;
   padding: 5px;
-  
 }
 
 .ui.height.grid{
   padding: 0 5%;
 }
 
-.ui.height.grid.tagline > p{
+.tagline > p{
   text-align: center;
-  margin: 0;
+  margin: 10px 0 0 0;
   width: 100%;
 }
