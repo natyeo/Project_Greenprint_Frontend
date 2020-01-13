@@ -18,3 +18,12 @@
   margin: 10px 0 0 0;
   width: 100%;
 }
+
+.ui.grid {
+  margin-bottom: 0;
+}
+
+a, a:hover, a:active, a:visited, a:focus {
+  color: #D9AC84;
+  text-decoration: none;
+}
