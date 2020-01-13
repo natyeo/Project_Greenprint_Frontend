@@ -5,7 +5,7 @@ class Register extends Component {
   constructor() {
     super();
     this.state = {
-      username: "",
+      name: "",
       email: "",
       password: "",
       password2: ""
@@ -20,33 +20,36 @@ class Register extends Component {
 
   onSubmit = e => {
     e.preventDefault();
+
     const data = {
-      username: this.state.username,
+      name: this.state.name,
       email: this.state.email,
       password: this.state.password,
       password2: this.state.password2
     };
-    //
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    var raw = JSON.stringify(data);
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow"
+    };
     fetch(
       "https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/user/register",
-      // "https://cors-anywhere.herokuapp.com/http://localhost:5678/travel/register",
-      {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*"
-        },
-        body: JSON.stringify(data)
-      }
-    );
+      requestOptions
+    )
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log("error", error));
     // .then(result => {
     //   this.props.history.push("/");
     // });
   };
 
   render() {
-    const { username, email, password, password2 } = this.state;
+    const { name, email, password, password2 } = this.state;
     return (
       <div>
         <form onSubmit={this.onSubmit}>
@@ -56,8 +59,8 @@ class Register extends Component {
           <input
             type="text"
             placeholder="User Name"
-            name="username"
-            value={username}
+            name="name"
+            value={name}
             onChange={this.onChange}
             required
           />

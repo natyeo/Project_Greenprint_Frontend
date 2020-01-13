@@ -2,6 +2,7 @@ import React from "react";
 import JourneyOptions from "./journeyoptions";
 import "./journey.css";
 import Modal from "./Modal/Modal";
+import Welcome from "./welcome.jsx";
 
 class JourneyForm extends React.Component {
   constructor(props) {
@@ -41,9 +42,10 @@ class JourneyForm extends React.Component {
       .then(data => data.json())
       .then(body => {
         this.setState({
-          options: body,
+          options: body.results,
           loading: false
         });
+        console.log(body);
         return body;
       });
   }
@@ -57,6 +59,7 @@ class JourneyForm extends React.Component {
   journeyOptionsList() {
     const startPoint = this.state.from;
     const endPoint = this.state.to;
+    console.log(this.state.options);
     return this.state.options.map(function(elem, i) {
       return (
         <JourneyOptions
@@ -72,6 +75,10 @@ class JourneyForm extends React.Component {
   render() {
     return (
       <div>
+        <div>
+          <Welcome name="there" />
+        </div>
+
         <div className="grouping">
           <h3>Journey Calculation</h3>
           <form onSubmit={this.handleSubmit} className="ui form">

@@ -27,7 +27,7 @@ class Login extends Component {
     };
 
     fetch(
-      "https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/user/register",
+      "https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/user/login",
       // "https://cors-anywhere.herokuapp.com/http://localhost:5678/travel/login",
       {
         method: "POST",
@@ -41,7 +41,9 @@ class Login extends Component {
     )
       .then(data => data.json())
       .then(body => {
+        // localStorage.setItem("jwtToken", body.token);
         userService.setToken(body.token);
+        console.log(body.token, userService.getToken("jwtToken"));
         // localStorage.setItem("jwtToken", body.token);
         this.setState({ message: "" });
         this.props.history.push("/");

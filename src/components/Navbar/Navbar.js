@@ -10,7 +10,8 @@ class Navbar extends Component {
   };
 
   render() {
-    const isLoggedIn = userService.loggedIn;
+    const isLoggedIn = userService.loggedIn();
+    console.log(isLoggedIn);
     return (
       <nav className="ui large secondary menu">
         <div className="left item">
@@ -22,7 +23,7 @@ class Navbar extends Component {
           {isLoggedIn ? (
             <div>
               <li className="item">
-                <Link to="/login">Sign In</Link>
+                <Link to={"/login"}>Sign In</Link>
               </li>
               <li className="item">
                 <Link to="/register">Sign Up</Link>
