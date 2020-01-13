@@ -59,7 +59,7 @@ class Profile extends React.Component {
       return <div />
     } else {
       const data = this.state.journeys.map(function(journey) {
-        return { name:journey.date, uv:journey.carbon }
+        return { name:journey.date.slice(0, 10), carbon:journey.carbon }
       })
 
       return (
@@ -70,10 +70,10 @@ class Profile extends React.Component {
           margin={{top: 5, right: 30, left: 20, bottom: 5}}>
           <CartesianGrid strokeDasharray="3 3"/>
           <XAxis dataKey="name"/>
-          <YAxis/>
+          <YAxis />
           <Tooltip/>
           <Legend />
-          <Bar dataKey="uv" fill="#8884d8" />
+          <Bar dataKey="carbon" fill="#8884d8" />
           </BarChart>
           </div>
       </div>
