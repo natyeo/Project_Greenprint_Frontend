@@ -2,7 +2,7 @@ import React from 'react';
 import './Modal.css';
 
 
-const modal = (props) => {
+const modal = () => {
 
   return (
       <div className="modal-wrapper">

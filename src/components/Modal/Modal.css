@@ -1,7 +1,8 @@
 .modal-wrapper {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
+  z-index: 1000;
   background: rgba(166, 105, 70, 0.288);
   box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
   transition: all .8s;

@@ -1,0 +1,29 @@
+.ui.footer.segment {
+  background: #5B7355;
+  color: #D9AC84;
+  text-align: justify;
+}
+
+.tagline {
+  border-top: 1px solid #D9AC84;
+  padding: 5px;
+}
+
+.ui.height.grid{
+  padding: 0 5%;
+}
+
+.tagline > p{
+  text-align: center;
+  margin: 10px 0 0 0;
+  width: 100%;
+}
+
+.ui.grid {
+  margin-bottom: 0;
+}
+
+a, a:hover, a:active, a:visited, a:focus {
+  color: #D9AC84;
+  text-decoration: none;
+}
