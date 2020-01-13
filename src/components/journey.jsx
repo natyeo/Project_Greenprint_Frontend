@@ -26,7 +26,7 @@ class JourneyForm extends React.Component {
   apiCall() {
     const data = {from: this.state.from , to: this.state.to}
     // remember to change the route below for production
-    return fetch('https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/test-route', {
+    return fetch('https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/', {
       method: 'POST',
       headers: {
         "Accept": "application/json",
@@ -38,7 +38,7 @@ class JourneyForm extends React.Component {
       .then((data) =>  data.json())
       .then((body) => {
         this.setState({
-          options: body.results,
+          options: body,
           loading: false
         });
         return body
