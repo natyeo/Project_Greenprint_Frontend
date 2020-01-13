@@ -41,7 +41,7 @@ class JourneyForm extends React.Component {
       .then(data => data.json())
       .then(body => {
         this.setState({
-          options: body.results,
+          options: body,
           loading: false
         });
         return body;
