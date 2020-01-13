@@ -3,5 +3,5 @@
   "routes": {
     "/**": "index.html"
   },
-  "https-only": true
+  "https_only": true
 }
