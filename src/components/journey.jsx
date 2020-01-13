@@ -86,7 +86,6 @@ class JourneyForm extends React.Component {
 
         { this.state.options ?
 
-<<<<<<< HEAD
           <div className="grouping results">
             <h3>Your travel results</h3>
             <table className="ui celled striped table" style={{textAlign: "center"}} >
@@ -94,24 +93,6 @@ class JourneyForm extends React.Component {
                 {this.journeyOptionsList() }
               </tbody>
             </table>
-=======
-          <div id="list">
-              <h3>Your travel options:</h3>
-              <table className="ui celled table" style={{textAlign: "center"}} >
-                <thead>
-                    <tr>
-                      <th>Mode</th>
-                      <th>Travel time</th>
-                      <th>Distance (in miles)</th>
-                      <th>Carbon (in kg)</th>
-                      <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                  {this.journeyOptionsList() }
-                </tbody>
-              </table>
->>>>>>> 4973cc9cebc47a9b415d823f320a6ec85f188348
           </div> :
           <> </>
         }
