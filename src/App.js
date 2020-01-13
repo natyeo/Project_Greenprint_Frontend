@@ -3,6 +3,7 @@ import './App.css';
 import Welcome from './components/welcome.jsx';
 import JourneyForm from './components/journey.jsx';
 import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
 
 class App extends React.Component {
 
@@ -14,6 +15,7 @@ class App extends React.Component {
         <div className="journey-planner">
           <JourneyForm />
         </div>
+        <Footer />
       </div>
     );
   }
