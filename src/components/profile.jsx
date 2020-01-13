@@ -7,12 +7,9 @@ import './profile.css';
 class Profile extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      journeys: []
-    };
   }
 
-  render() {
+  componentDidMount() {
     const userId =
     fetch(`https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/travel/record/user/:${userId}`,
       {
@@ -25,17 +22,21 @@ class Profile extends React.Component {
       })
       .then(data => data.json())
       .then(body => {
-        this.setState(body.data);
+        this.setState({journeys: body.data});
       })
+  }
+
+  render() {
 
       const data = [
-        { name: 'Page A', uv: 4000 },
-        { name: 'Page B', uv: 3000 },
-        { name: 'Page C', uv: 2000 },
-        { name: 'Page D', uv: 2780 },
+        { name: 'Date 1', uv: 4000 },
+        { name: 'Date 2', uv: 3000 },
+        { name: 'Date 3', uv: 2000 },
+        { name: 'Date 4', uv: 2780 },
         { name: 'Page E', uv: 1890 },
       ];
 
+      if (this.state.journeys) {
       return (
         <BarChart width={600} height={300} data={data}
         margin={{top: 5, right: 30, left: 20, bottom: 5}}>
@@ -44,13 +45,9 @@ class Profile extends React.Component {
         <YAxis/>
         <Tooltip/>
         <Legend />
-        <Bar dataKey="pv" fill="#8884d8" />
+        <Bar dataKey="uv" fill="#8884d8" />
         </BarChart>
-      );
-
-      ReactDOM.render(
-        <SimpleBarChart />,
-        document.getElementById('container')
+      }
       );
     }
   }
