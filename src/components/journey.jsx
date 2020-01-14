@@ -39,10 +39,7 @@ class JourneyForm extends React.Component {
         body: JSON.stringify(data)
       }
     )
-      .then(data => {
-        console.log(data);
-        data.json();
-      })
+      .then(data => data.json())
       .then(body => {
         this.setState({
           options: body,
