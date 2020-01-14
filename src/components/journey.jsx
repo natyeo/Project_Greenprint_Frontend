@@ -3,6 +3,7 @@ import JourneyOptions from "./journeyoptions";
 import "./journey.css";
 import Modal from "./Modal/Modal";
 import Welcome from "./welcome.jsx";
+import BadRequestError from "./badrequesterror.jsx";
 
 class JourneyForm extends React.Component {
   constructor(props) {
@@ -47,7 +48,7 @@ class JourneyForm extends React.Component {
         loading: false
       });
       return body;
-    });
+    })
   }
 
   handleSubmit = event => {
@@ -60,6 +61,9 @@ class JourneyForm extends React.Component {
     const startPoint = this.state.from;
     const endPoint = this.state.to;
     console.log(this.state.options);
+    if (this.state.options.error) {
+      return(<BadRequestError error={this.state.options.error} description={this.state.options.description}/>)
+    }
     return this.state.options.map(function(elem, i) {
       return (
         <JourneyOptions
