@@ -10,7 +10,6 @@ class Navbar extends Component {
   };
 
 
-
   render() {
     var isLoggedIn = userService.loggedIn();
     return (
@@ -37,12 +36,6 @@ class Navbar extends Component {
               </li>
             </div>
 
-
-            // <li className="item">
-            //   <Link to="/" onClick={this.logout}>
-            //     Sign Out
-            //   </Link>
-            // </li>
           )}
         </div>
       </nav>

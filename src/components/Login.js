@@ -10,8 +10,13 @@ class Login extends Component {
       email: "",
       password: "",
       message: ""
-    };
-  }
+    }};
+
+//   login = () => {
+//   userService.isLoggedIn();
+//   window.location.reload();
+//    this.forceUpdate();
+// };
 
   onChange = e => {
     const state = this.state;
