@@ -28,7 +28,7 @@ class JourneyForm extends React.Component {
     const data = { from: this.state.from, to: this.state.to };
     // remember to change the route below for production
     return fetch(
-      "https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/test-route",
+      "https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/",
       {
         method: "POST",
         headers: {
@@ -39,13 +39,16 @@ class JourneyForm extends React.Component {
         body: JSON.stringify(data)
       }
     )
-      .then(data => data.json())
+      .then(data => {
+        console.log(data);
+        data.json();
+      })
       .then(body => {
         this.setState({
-          options: body.results,
+          options: body,
           loading: false
         });
-        console.log(body);
+        console.log("body", body);
         return body;
       });
   }

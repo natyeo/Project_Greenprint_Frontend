@@ -21,6 +21,12 @@ class Navbar extends Component {
         </div>
         <div className="right item">
           {isLoggedIn ? (
+            <li className="item">
+              <Link to="/" onClick={this.logout}>
+                Sign Out
+              </Link>
+            </li>
+          ) : (
             <div>
               <li className="item">
                 <Link to={"/login"}>Sign In</Link>
@@ -29,12 +35,12 @@ class Navbar extends Component {
                 <Link to="/register">Sign Up</Link>
               </li>
             </div>
-          ) : (
-            <li className="item">
-              <Link to="/" onClick={this.logout}>
-                Sign Out
-              </Link>
-            </li>
+
+            // <li className="item">
+            //   <Link to="/" onClick={this.logout}>
+            //     Sign Out
+            //   </Link>
+            // </li>
           )}
         </div>
       </nav>
