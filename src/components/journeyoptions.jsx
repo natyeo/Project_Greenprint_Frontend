@@ -3,6 +3,13 @@ import { Link } from "react-router-dom";
 import { userService } from "../services/authentication.service";
 
 class JourneyOptions extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      message: ""
+    };
+  }
+
   saveJourneyToDB = () => {
     const id = userService.decodeTokenGetId();
     const data = {
@@ -22,7 +29,20 @@ class JourneyOptions extends React.Component {
         },
         body: JSON.stringify(data)
       }
-    );
+    )
+      .then(data => data.json())
+      .then(body => {
+        // console.log(body);
+        if (body.success === true) {
+          this.setState({
+            message: "Successfully added to your dashboard"
+          });
+          console.log(this.state.message);
+        }
+      });
+    // let suscess_message = body.message;
+    // return <div className="warning">{suscess_message}</div>;
+    //
   };
 
   render() {
@@ -53,7 +73,11 @@ class JourneyOptions extends React.Component {
         </td>
         <td>
           {isLoggedIn ? (
-            <button onClick={this.saveJourneyToDB}>Save journey</button>
+            this.state.message !== "" ? (
+              <div role="alert">{this.state.message}</div>
+            ) : (
+              <button onClick={this.saveJourneyToDB}>Save journey</button>
+            )
           ) : (
             <Link to="/login">Save journey</Link>
           )}
