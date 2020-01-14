@@ -30,15 +30,15 @@ class Profile extends React.Component {
 
     distanceByMode(cycling, driving, transit, walking) {
       return this.state.journeys.map(
-        function(ele) {
-          if(ele.mode === "bicycling"){
-            cycling.value += ele.distance
-          } else if (ele.mode === "driving") {
-            driving.value += ele.distance
-          } else if (ele.mode === "transit") {
-            transit.value += ele.distance
-          } else if (ele.mode === "walking") {
-            walking.value += ele.distance
+        function(elem) {
+          if(elem.mode === "bicycling"){
+            cycling.value += elem.distance
+          } else if (elem.mode === "driving") {
+            driving.value += elem.distance
+          } else if (elem.mode === "transit") {
+            transit.value += elem.distance
+          } else if (elem.mode === "walking") {
+            walking.value += elem.distance
           }
         }
       )
@@ -48,9 +48,11 @@ class Profile extends React.Component {
       if (!this.state.journeys) {
         return <div />
       } else {
-        const barData = this.state.journeys.map(function(journey) {
-          return { name:journey.date.slice(0, 10), carbon:journey.carbon }
-        })
+        const barData = this.state.journeys.reduce(function(result, journey) {
+          if (journey.mode !== "bicycling" && journey.mode !== "walking")
+            result.push({ name:journey.date.slice(0, 10), carbon:journey.carbon })
+          return result;
+        }, []);
 
         const cycling = {name: 'Cycling', value: 0};
         const driving = {name: 'Driving', value: 0};
