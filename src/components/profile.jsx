@@ -12,47 +12,21 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
-    // const userId = userService.decodeTokenGetId
-    // fetch(`https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/travel/record/user/:${userId}`,
-    //   {
-    //     method: "GET",
-    //     headers: {
-    //       "Accept": "application/json",
-    //       "Content-Type": "application/json",
-    //       "Access-Control-Allow-Origin": "*"
-    //     }
-    //   })
-    //   .then(data => data.json())
-    //   .then(body => {
-    // this.setState({journeys: body.data});
-    // })
-    this.setState({journeys: [{
-      "_id": "5e1c51805a41cf6b38a03d56",
-      "user": "5e1c50beb4cc536b2300eaad",
-      "mode": "transit",
-      "distance": 20,
-      "carbon": 30,
-      "__v": 0,
-      "date": "2020-01-13T14:52:09.952Z"
-    },
-    {
-      "_id": "5e1c52264f6eae6b5a492942",
-      "mode": "driving",
-      "distance": 100,
-      "carbon": 90,
-      "user": "5e1c50beb4cc536b2300eaad",
-      "__v": 0,
-      "date": "2020-01-13T14:52:09.953Z"
-    },
-    {
-      "_id": "5e1c529363f0d66b75c14b85",
-      "mode": "driving",
-      "distance": 5,
-      "carbon": 20,
-      "user": "5e1c50beb4cc536b2300eaad",
-      "__v": 0,
-      "date": "2020-01-13T14:52:09.954Z"
-    },]})
+    const userId = userService.decodeTokenGetId()
+    console.log(userId)
+    fetch(`https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/travel/record/user/${userId}`,
+      {
+        method: "GET",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*"
+        }
+      })
+      .then(data => data.json())
+      .then(body => {
+    this.setState({journeys: body.data});
+    })
   }
 
   render() {
