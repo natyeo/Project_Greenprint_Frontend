@@ -26,7 +26,7 @@ class JourneyForm extends React.Component {
 
   apiCall() {
     const data = { from: this.state.from, to: this.state.to };
-    // remember to change the route below for production
+    // remember to change the route below for production / TEST
     return fetch(
       "https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/",
       {
@@ -58,15 +58,17 @@ class JourneyForm extends React.Component {
   journeyOptionsList() {
     const startPoint = this.state.from;
     const endPoint = this.state.to;
-    console.log(this.state.options);
+
     return this.state.options.map(function(elem, i) {
       return (
-        <JourneyOptions
-          results={elem}
-          key={i}
-          from={startPoint}
-          to={endPoint}
-        />
+          <div>
+            <JourneyOptions
+              results={elem}
+              key={i}
+              from={startPoint}
+              to={endPoint}
+            />
+          </div>  
       );
     });
   }
