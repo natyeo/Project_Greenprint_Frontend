@@ -45,17 +45,21 @@ class JourneyOptions extends React.Component {
     //
   };
 
+  Capitalize(str){
+    return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
   render() {
     const isLoggedIn = userService.loggedIn();
 
     return (
-     <div> 
+     <div style={{ border: '2px solid #3a4b35', margin: '0.2rem' }}> 
       <div>
         <tr>
-          <td>{this.props.results.mode}</td>
-          <td>{this.props.results.travel_time}</td>
-          <td>{this.props.results.distance} miles.</td>
-          <td>{this.props.results.carbon}kg of Carbon.</td>
+          <td style={{ fontWeight: 'bold' }} >{this.Capitalize(this.props.results.mode)}</td>
+          <td>Time: {this.props.results.travel_time}</td>
+          <td>Distance: {this.props.results.distance} miles</td>
+          <td>Carbon: <span style={{ fontWeight: 'bold' }} >{this.props.results.carbon}</span> kg</td>
           <td>
             <a
               id={this.props.results.mode}
@@ -69,7 +73,7 @@ class JourneyOptions extends React.Component {
                 "&travelmode=" +
                 this.props.results.mode
               }
-            >
+              style={{ color: 'blue' }} >
               Open with Google Maps
             </a>
           </td>
@@ -78,10 +82,10 @@ class JourneyOptions extends React.Component {
               this.state.message !== "" ? (
                 <div role="alert">{this.state.message}</div>
               ) : (
-                <button onClick={this.saveJourneyToDB}>Save journey</button>
+                <button onClick={this.saveJourneyToDB} style={{ color: 'blue' }} >Save journey</button>
               )
             ) : (
-              <Link to="/login">Save journey</Link>
+              <Link style={{ color: 'blue' }} to="/login">Save journey</Link>
             )}
           </td>
         </tr>

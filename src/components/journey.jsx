@@ -114,14 +114,16 @@ class JourneyForm extends React.Component {
       </div>
 
       {this.state.options ? (
-        <div className="grouping results">
-        <h3>Your travel results</h3>
-        <table
-        className="ui celled striped table"
-        style={{ textAlign: "center" }}
-        >
-        <tbody>{this.journeyOptionsList()}</tbody>
-        </table>
+        <div className="grouping_results">
+          <h2>Your travel results</h2>
+          <div className="grouping_table">
+          <table
+          className="ui celled striped table"
+          style={{ display: 'flex',  justifyContent:'center', alignItems:'center', textAlign: "center" }}
+          >
+          <tbody>{this.journeyOptionsList()}</tbody>
+          </table>
+        </div>
         </div>
       ) : (
         <> </>
