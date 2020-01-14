@@ -4,14 +4,16 @@ import "./Navbar.css";
 import { userService } from "../../services/authentication.service";
 
 class Navbar extends Component {
+  this.props.loggedIn ? {node} : null
   logout = () => {
     userService.logout();
     window.location.reload();
   };
 
+
+
   render() {
     const isLoggedIn = userService.loggedIn();
-    console.log(isLoggedIn);
     return (
       <nav className="ui large secondary menu">
         <div className="left item">
@@ -31,10 +33,11 @@ class Navbar extends Component {
               <li className="item">
                 <Link to={"/login"}>Sign In</Link>
               </li>
-              // <li className="item">
-              //   <Link to="/register">Sign Up</Link>
-              // </li>
+              <li className="item">
+                <Link to="/register">Sign Up</Link>
+              </li>
             </div>
+
 
             // <li className="item">
             //   <Link to="/" onClick={this.logout}>

@@ -19,6 +19,7 @@ class App extends React.Component {
               <Route exact path="/" component={JourneyForm} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
+            
             </Switch>
           </div>
         </Router>
