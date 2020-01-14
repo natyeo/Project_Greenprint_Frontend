@@ -29,7 +29,7 @@ class Profile extends React.Component {
     }
 
     distanceByMode(cycling, driving, transit, walking) {
-      return this.state.journeys.map(
+      return this.state.journeys.forEach(
         function(elem) {
           if(elem.mode === "bicycling"){
             cycling.value += elem.distance
@@ -44,16 +44,19 @@ class Profile extends React.Component {
       )
     }
 
+    carbonPerJourney(journeys) {
+      return journeys.reduce(function(result, journey) {
+        if (journey.mode !== "bicycling" && journey.mode !== "walking")
+          result.push({ name:journey.date.slice(0, 10), carbon:journey.carbon })
+        return result;
+      }, []);
+    }
+
     render() {
       if (!this.state.journeys) {
         return <div />
       } else {
-        const barData = this.state.journeys.reduce(function(result, journey) {
-          if (journey.mode !== "bicycling" && journey.mode !== "walking")
-            result.push({ name:journey.date.slice(0, 10), carbon:journey.carbon })
-          return result;
-        }, []);
-
+        const barData = this.carbonPerJourney(this.state.journeys);
         const cycling = {name: 'Cycling', value: 0};
         const driving = {name: 'Driving', value: 0};
         const transit = {name: 'Public transport', value: 0};
@@ -65,8 +68,9 @@ class Profile extends React.Component {
 
         return (
           <div>
-          <h1>My Carbon Dashboard</h1>
+          <h1>My Journeys Dashboard</h1>
             <div id="barchart">
+            <h2>Carbon per journey (kg)</h2>
               <BarChart width={600} height={300} data={barData}
                 margin={{top: 5, right: 10, left: 100, bottom: 5}}>
                 <CartesianGrid strokeDasharray="3 3"/>
@@ -78,7 +82,7 @@ class Profile extends React.Component {
               </BarChart>
             </div>
             <div id="piechart">
-              <h1>Distance travelled by mode of transport</h1>
+              <h2>Distance travelled by mode of transport (miles)</h2>
               <PieChart width={800} height={400}>
                 <Pie isAnimationActive={true} data={pieData} cx={400} cy={150} outerRadius={100} fill="#8884d8" label/>
                 <Tooltip/>
