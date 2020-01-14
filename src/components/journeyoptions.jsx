@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { userService } from "../services/authentication.service";
 
 class JourneyOptions extends React.Component {
@@ -25,6 +26,8 @@ class JourneyOptions extends React.Component {
   };
 
   render() {
+    const isLoggedIn = userService.loggedIn();
+
     return (
       <tr>
         <td>{this.props.results.mode}</td>
@@ -49,7 +52,11 @@ class JourneyOptions extends React.Component {
           </a>
         </td>
         <td>
-          <button onClick={this.saveJourneyToDB}>Save journey</button>
+          {isLoggedIn ? (
+            <button onClick={this.saveJourneyToDB}>Save journey</button>
+          ) : (
+            <Link to="/login">Save journey</Link>
+          )}
         </td>
       </tr>
     );
