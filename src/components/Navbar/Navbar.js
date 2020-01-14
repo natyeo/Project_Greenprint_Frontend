@@ -4,7 +4,6 @@ import "./Navbar.css";
 import { userService } from "../../services/authentication.service";
 
 class Navbar extends Component {
-  this.props.loggedIn ? {node} : null
   logout = () => {
     userService.logout();
     window.location.reload();
@@ -13,7 +12,7 @@ class Navbar extends Component {
 
 
   render() {
-    const isLoggedIn = userService.loggedIn();
+    var isLoggedIn = userService.loggedIn();
     return (
       <nav className="ui large secondary menu">
         <div className="left item">
