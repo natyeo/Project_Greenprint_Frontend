@@ -60,7 +60,6 @@ class JourneyForm extends React.Component {
   journeyOptionsList() {
     const startPoint = this.state.from;
     const endPoint = this.state.to;
-    console.log(this.state.options);
     if (this.state.options.error) {
       return(<BadRequestError error={this.state.options.error} description={this.state.options.description}/>)
     }
