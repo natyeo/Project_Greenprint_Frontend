@@ -32,17 +32,12 @@ class JourneyOptions extends React.Component {
     )
       .then(data => data.json())
       .then(body => {
-        // console.log(body);
         if (body.success === true) {
           this.setState({
             message: "Successfully added to your dashboard"
           });
-          console.log(this.state.message);
         }
       });
-    // let suscess_message = body.message;
-    // return <div className="warning">{suscess_message}</div>;
-    //
   };
 
   render() {
