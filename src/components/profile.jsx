@@ -3,6 +3,7 @@ import {
   BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
 import './profile.css';
+import { userService } from '../services/authentication.service'
 
 class Profile extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
-    // const userId =
+    // const userId = userService.decodeTokenGetId
     // fetch(`https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/travel/record/user/:${userId}`,
     //   {
     //     method: "GET",
