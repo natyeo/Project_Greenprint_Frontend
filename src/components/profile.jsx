@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Sector
+  BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, PieChart, Pie
 } from 'recharts';
 import './profile.css';
 import { userService } from '../services/authentication.service'
@@ -28,8 +28,8 @@ class Profile extends React.Component {
       })
     }
 
-    distanceByMode(cycling, walking, driving, transit) {
-      this.state.journeys.map(
+    distanceByMode(cycling, driving, transit, walking) {
+      return this.state.journeys.map(
         function(ele) {
           if(ele.mode === "bicycling"){
             cycling.value += ele.distance
@@ -59,7 +59,7 @@ class Profile extends React.Component {
 
         this.distanceByMode(cycling, driving, transit, walking);
 
-        const pieData = [driving, transit, walking, cycling]
+        const pieData = [cycling, driving, transit, walking]
 
         return (
           <div>

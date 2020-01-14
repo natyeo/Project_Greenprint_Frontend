@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
-// import Welcome from "./components/welcome.jsx";
 import JourneyForm from "./components/journey.jsx";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";

@@ -11,7 +11,6 @@ class Navbar extends Component {
 
   render() {
     const isLoggedIn = userService.loggedIn();
-    console.log(isLoggedIn);
     return (
       <nav className="ui large secondary menu">
       <div className="left item">
