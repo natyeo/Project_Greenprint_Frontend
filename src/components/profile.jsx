@@ -23,7 +23,7 @@ class Profile extends React.Component {
 
   componentDidMount() {
     if (!userService.loggedIn()) {
-      return <Redirect to="/" />;
+      return <Redirect to="/profile" />;
     } else {
       const userId = userService.decodeTokenGetId();
       fetch(
@@ -124,7 +124,7 @@ class Profile extends React.Component {
         <div>
           <h1>My Journeys Dashboard</h1>
           <div id="barchart">
-            <h2>Carbon(kg) per journey taken by rail or car</h2>
+            <h2>Carbon(kg) per journey taken by rail, car, or plane</h2>
             <BarChart
               width={600}
               height={300}
@@ -173,8 +173,8 @@ class Profile extends React.Component {
           </div>
           <div id="recommendations">
             <h2>Some things you can do to offset your carbon emmissions..</h2>
+
             <p>
-              {" "}
               Invest in carbon offsetting projects like this one:
               <a href="https://www.carbonfootprint.com/carbonoffsetprojects.html">
                 {" "}

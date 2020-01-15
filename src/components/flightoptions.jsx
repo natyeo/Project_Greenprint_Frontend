@@ -1,13 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { userService } from "../services/authentication.service";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { userService } from '../services/authentication.service';
 
-class JourneyOptions extends React.Component {
+class JourneyOptionsFlying extends React.Component {
   constructor() {
     super();
     this.state = {
       message: ""
-    };
+    }
   }
 
   saveJourneyToDB = () => {
@@ -57,9 +57,10 @@ class JourneyOptions extends React.Component {
       <tbody>
       <tr>
       <td style={{ fontWeight: 'bold' }} >{this.Capitalize(this.props.results.mode)}</td>
-      <td>Time: {this.props.results.travel_time}</td>
+      <td>Flying from {this.props.results.origin} to {this.props.results.destination}</td>
       <td>Distance: {this.props.results.distance} miles</td>
       <td>Carbon: <span style={{ fontWeight: 'bold' }} >{this.props.results.carbon}</span> kg</td>
+      <td>This journey is equivalent to <span style={{ fontWeight: 'bold'}}>{this.props.results.barrels_of_oil}</span> barrels of petrol.</td>
       <td>
       <a
       id={this.props.results.mode}
@@ -92,12 +93,9 @@ class JourneyOptions extends React.Component {
       </tbody>
       </table>
       </div>
-      <div className="map-responsive">
-      <iframe title="map" width="800" height="200" frameborder="1" style={{border:0}} src={decodeURIComponent(this.props.results.url)} allowfullscreen></iframe>
       </div>
-      </div>
-    );
+    )
   }
 }
 
-export default JourneyOptions;
+export default JourneyOptionsFlying
