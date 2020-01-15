@@ -4,11 +4,11 @@ import "./Navbar.css";
 import { userService } from "../../services/authentication.service";
 
 class Navbar extends Component {
+
   logout = () => {
     userService.logout();
     window.location.reload();
   };
-
 
   render() {
     var isLoggedIn = userService.loggedIn();
@@ -20,7 +20,7 @@ class Navbar extends Component {
           </li>
         </div>
         <div className="right item">
-          {isLoggedIn ? (
+          {userService.loggedIn() ? (
             <li className="item">
               <Link to="/" onClick={this.logout}>
                 Sign Out
