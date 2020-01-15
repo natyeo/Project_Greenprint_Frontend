@@ -8,6 +8,7 @@ class Navbar extends Component {
   logout = () => {
     userService.logout();
     window.location.reload();
+    // this.props.history.push("/");
   };
 
   render() {
