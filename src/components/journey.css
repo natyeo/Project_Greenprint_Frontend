@@ -11,8 +11,8 @@ input {
   margin-bottom: 7%;
 }
 
-.ui.button, 
-.ui.active.button:active, 
+.ui.button,
+.ui.active.button:active,
 .ui.button:active,
 .ui.button:focus,
 .ui.button:hover {
