@@ -53,13 +53,12 @@ class Login extends Component {
     )
       .then(data => data.json())
       .then(body => {
-        if (body.emailnotfound === "Email not found") {
+        if (
+          body.emailnotfound === "Email not found" ||
+          body.passwordincorrect === "Password incorrect"
+        ) {
           this.setState({
-            message: "Email not found"
-          });
-        } else if (body.passwordincorrect === "Password incorrect") {
-          this.setState({
-            message: "Password incorrect"
+            message: "Email or password incorrect, please try again"
           });
         } else {
           userService.setToken(body.token);
