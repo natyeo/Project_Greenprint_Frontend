@@ -9,10 +9,23 @@ class Login extends Component {
     this.state = {
       email: "",
       password: "",
-      message: ""
-    }};
+      message: "",
+      isLoggedIn: false
+    };
+  }
 
-
+    checkLoggedIn = () => {
+      if(userService.loggedIn()){
+        this.setState({
+          isLoggedIn: true
+        });
+      } else {
+        this.setState({
+          isLoggedIn: false
+        });
+      }
+      this.props.callbackFromParent(this.state.isLoggedIn);
+    };
 
   onChange = e => {
     const state = this.state;
@@ -43,6 +56,7 @@ class Login extends Component {
       .then(body => {
         userService.setToken(body.token);
         this.setState({ message: "" });
+        this.checkLoggedIn();
         this.props.history.push("/");
       })
       .catch(error => {
@@ -55,6 +69,7 @@ class Login extends Component {
   };
 
   render() {
+
     const { email, password, message } = this.state;
     return (
       <div>

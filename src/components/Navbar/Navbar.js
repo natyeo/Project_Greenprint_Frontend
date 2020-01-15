@@ -11,7 +11,6 @@ class Navbar extends Component {
   };
 
   render() {
-    var isLoggedIn = userService.loggedIn();
     return (
       <nav className="ui large secondary menu">
         <div className="left item">
@@ -20,7 +19,7 @@ class Navbar extends Component {
           </li>
         </div>
         <div className="right item">
-          {userService.loggedIn() ? (
+          {this.props.isLoggedIn ? (
             <li className="item">
               <Link to="/" onClick={this.logout}>
                 Sign Out
