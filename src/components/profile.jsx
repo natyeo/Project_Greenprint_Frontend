@@ -66,8 +66,9 @@ class Profile extends React.Component {
     render() {
       if (!this.state.journeys) {
         return <div />
+      } else if ( this.state.journeys.length === 0 ) {
+        return <h2>You haven't made any journeys yet, please visit 'Home' to do this!</h2>
       } else {
-
         const cyclingDistance = {name: 'Cycling', value: 0};
         const drivingDistance = {name: 'Driving', value: 0};
         const transitDistance = {name: 'Public transport', value: 0};
