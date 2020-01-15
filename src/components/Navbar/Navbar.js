@@ -11,38 +11,34 @@ class Navbar extends Component {
 
   render() {
     const isLoggedIn = userService.loggedIn();
-    console.log(isLoggedIn);
     return (
       <nav className="ui large secondary menu">
-        <div className="left item">
-          <li className="item">
-            <Link to="/">Home</Link>
-          </li>
+      <div className="left item">
+      <li className="item">
+      <Link to="/">Home</Link>
+      </li>
+      </div>
+      <div className="right item">
+      {isLoggedIn ? (
+        <div>
+        <li className="item">
+        <Link to="/profile">Dashboard</Link>
+        </li>
+        <li className="item">
+        <Link to="/" onClick={this.logout}>Sign Out</Link>
+        </li>
         </div>
-        <div className="right item">
-          {isLoggedIn ? (
-            <li className="item">
-              <Link to="/" onClick={this.logout}>
-                Sign Out
-              </Link>
-            </li>
-          ) : (
-            <div>
-              <li className="item">
-                <Link to={"/login"}>Sign In</Link>
-              </li>
-              <li className="item">
-                <Link to="/register">Sign Up</Link>
-              </li>
-            </div>
-
-            // <li className="item">
-            //   <Link to="/" onClick={this.logout}>
-            //     Sign Out
-            //   </Link>
-            // </li>
-          )}
+      ) : (
+        <div>
+        <li className="item">
+        <Link to={"/login"}>Sign In</Link>
+        </li>
+        <li className="item">
+        <Link to="/register">Sign Up</Link>
+        </li>
         </div>
+      )}
+      </div>
       </nav>
     );
   }

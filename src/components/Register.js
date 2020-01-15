@@ -42,9 +42,6 @@ class Register extends Component {
       .then(response => response.text())
       .then(result => console.log(result))
       .catch(error => console.log("error", error));
-    // .then(result => {
-    //   this.props.history.push("/");
-    // });
   };
 
   render() {
