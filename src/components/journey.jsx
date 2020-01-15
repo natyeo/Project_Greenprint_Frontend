@@ -71,7 +71,6 @@ class JourneyForm extends React.Component {
         options: body,
         loading: false
       });
-      console.log(body)
       return body;
     })
   }
