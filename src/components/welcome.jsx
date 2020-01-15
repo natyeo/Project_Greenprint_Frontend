@@ -5,8 +5,7 @@ function Welcome(props) {
     <div className="about-app">
       <h1>GreenPrint</h1>
       <p>Hello {props.name}!</p>
-      <p>Small introduction text regarding the service and what to do here. This can say what our app does. Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
-      <p>Small introduction text regarding the service and what to do here. This can say what our app does. Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
+      <p>GreenPrint is an app intended to help you calculate and monitor the amount of carbon your travel produces on a per journey basis. If you enter two locations in the form below the app will generate several routes which you can take to your destination, divided by the mode of travel (usually driving, public transport, walking, and cycling).</p>
     </div>
   )
 }
