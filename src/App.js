@@ -10,7 +10,7 @@ import { userService } from "./services/authentication.service";
 import Profile from "./components/profile";
 
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       isLoggedIn: false
@@ -18,23 +18,23 @@ class App extends React.Component {
   }
 
   myCallback = dataFromChild => {
-    this.setState({isLoggedIn: dataFromChild});
+    this.setState({ isLoggedIn: dataFromChild });
   };
-
-
 
   render() {
     return (
       <div className="App">
         <Router>
-          <Navbar isLoggedIn={this.state.isLoggedIn}/>
+          <Navbar isLoggedIn={this.state.isLoggedIn} />
           <div className="journey-planner">
             <Switch>
               <Route exact path="/" component={JourneyForm} />
-              <Route exact path="/login"
-              render ={props => (
-                <Login {...props} callbackFromParent={this.myCallback} />
-              )}
+              <Route
+                exact
+                path="/login"
+                render={props => (
+                  <Login {...props} callbackFromParent={this.myCallback} />
+                )}
               />
               <Route exact path="/register" component={Register} />
               <Route exact path="/profile" component={Profile} />

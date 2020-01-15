@@ -7,7 +7,8 @@ class Register extends Component {
       name: "",
       email: "",
       password: "",
-      password2: ""
+      password2: "",
+      message: ""
     };
   }
 
@@ -40,7 +41,17 @@ class Register extends Component {
       requestOptions
     )
       .then(response => response.text())
-      .then(result => console.log(result))
+      .then(result => {
+        if (
+          result.password === "Password must be at least 6 characters" ||
+          result.password2 === "Passwords must match"
+        ) {
+          this.setState({
+            message: "Passwords must be at least 6 characters and must match"
+          });
+        }
+        this.props.history.push("/login");
+      })
       .catch(error => console.log("error", error));
   };
 
@@ -49,6 +60,11 @@ class Register extends Component {
     return (
       <div>
         <form onSubmit={this.onSubmit}>
+          {this.state.message !== "" && (
+            <div class="alert alert-warning alert-dismissible" role="alert">
+              {this.state.message}
+            </div>
+          )}
           <h2>Register</h2>
 
           <label>Username</label>

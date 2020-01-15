@@ -13,18 +13,18 @@ class Login extends Component {
     };
   }
 
-    checkLoggedIn = () => {
-      if(userService.loggedIn()){
-        this.setState({
-          isLoggedIn: true
-        });
-      } else {
-        this.setState({
-          isLoggedIn: false
-        });
-      }
-      this.props.callbackFromParent(this.state.isLoggedIn);
-    };
+  checkLoggedIn = () => {
+    if (userService.loggedIn()) {
+      this.setState({
+        isLoggedIn: true
+      });
+    } else {
+      this.setState({
+        isLoggedIn: false
+      });
+    }
+    this.props.callbackFromParent(this.state.isLoggedIn);
+  };
 
   onChange = e => {
     const state = this.state;
@@ -53,33 +53,32 @@ class Login extends Component {
     )
       .then(data => data.json())
       .then(body => {
-        userService.setToken(body.token);
-        this.setState({ message: "" });
-        this.checkLoggedIn();
-        this.props.history.push("/");
+        if (body.emailnotfound === "Email not found") {
+          this.setState({
+            message: "Email not found"
+          });
+        } else if (body.passwordincorrect === "Password incorrect") {
+          this.setState({
+            message: "Password incorrect"
+          });
+        } else {
+          userService.setToken(body.token);
+          this.checkLoggedIn();
+          this.props.history.push("/");
+        }
       })
       .catch(error => {
-        if (error.response.status === 401) {
-          this.setState({
-            message: "Login failed. Username or password not match"
-          });
-        }
+        console.log(error);
       });
   };
 
   render() {
-
     const { email, password, message } = this.state;
     return (
       <div>
         <form onSubmit={this.onSubmit}>
-          {message !== "" && (
-            <div class="alert alert-warning alert-dismissible" role="alert">
-              {message}
-            </div>
-          )}
-
           <h2>Please sign in</h2>
+          {message !== "" && <div role="alert">{message}</div>}
           <label>Email address</label>
           <input
             type="email"
