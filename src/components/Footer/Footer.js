@@ -17,6 +17,11 @@ const footer = () => {
               <li>
                 Trip to Carbon
               </li>
+              <a href="http://impact.brighterplanet.com/" target="_blank" rel="noopener noreferrer">
+                <li>
+                  Brighter Planet
+                </li>
+              </a>
             </a>
           </ul>
         </div>
