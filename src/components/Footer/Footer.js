@@ -20,9 +20,9 @@ const footer = () => {
             </a>
           </ul>
         </div>
-        <div className="nine wide column">
+        <div className="eleven wide column">
           <h3>Calculations</h3>
-          <p>This app uses calculates the carbon data based around the average stuff to go in here as we want to explain what the data is. Define the underlying principles that drive decisions and strategy for your design language. A better understanding of usage can aid in prioritizing future efforts. Out of scope. All hands on deck marketing computer development html roi feedback team website today shall be a cloudy day, thanks to blue sky thinking, we can now deploy our new ui to the cloud , but thinking outside the box proceduralize, for work. </p>
+          <p>This app uses calculates the carbon data based around the distance travelled and the mode of travel used. If driving, the calculation is based on an average car, if using public transit, an average train is assumed. Walking and cycling will always produce no carbon so no calculation happens. Carbon produced is pulled from the Trip to Carbon API.</p>
         </div>
       </div>
       <div className="tagline">
@@ -30,7 +30,7 @@ const footer = () => {
           </p>
       </div>
     </div>
-    
+
   )
 
 }

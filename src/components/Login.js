@@ -41,7 +41,6 @@ class Login extends Component {
       .then(data => data.json())
       .then(body => {
         userService.setToken(body.token);
-        console.log(body.token, userService.getToken("jwtToken"));
         this.setState({ message: "" });
         this.props.history.push("/");
       })
