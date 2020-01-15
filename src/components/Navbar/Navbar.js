@@ -4,7 +4,6 @@ import "./Navbar.css";
 import { userService } from "../../services/authentication.service";
 
 class Navbar extends Component {
-
   logout = () => {
     userService.logout();
     window.location.reload();
@@ -13,22 +12,20 @@ class Navbar extends Component {
   render() {
     return (
       <nav className="ui large secondary menu">
-      <div className="left item">
-      <li className="item">
-      <Link to="/">Home</Link>
-      </li>
-      </div>
+        <div className="left item">
+          <li className="item">
+            <Link to="/">Home</Link>
+          </li>
+        </div>
         <div className="right item">
           {this.props.isLoggedIn ? (
             <div>
-            <li className="item">
-            <Link to="/profile">Dashboard</Link>
-            </li>
-            <li className="item">
-              <Link to="/" onClick={this.logout}>
-                Sign Out
-              </Link>
-            </li>
+              <li className="item">
+                <Link to="/profile">Dashboard</Link>
+              </li>
+              <li className="item">
+                <button onClick={this.logout}>Sign Out</button>
+              </li>
             </div>
           ) : (
             <div>
@@ -40,7 +37,7 @@ class Navbar extends Component {
               </li>
             </div>
           )}
-      </div>
+        </div>
       </nav>
     );
   }
