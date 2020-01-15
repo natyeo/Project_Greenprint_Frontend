@@ -4,14 +4,9 @@ import "./Navbar.css";
 import { userService } from "../../services/authentication.service";
 
 class Navbar extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-
   logout = () => {
     userService.logout();
     window.location.reload();
-    // this.props.history.push("/");
   };
 
   render() {
@@ -29,9 +24,7 @@ class Navbar extends Component {
                 <Link to="/profile">Dashboard</Link>
               </li>
               <li className="item">
-                <Link to="/" onClick={this.logout}>
-                  Sign Out
-                </Link>
+                <button onClick={this.logout}>Sign Out</button>
               </li>
             </div>
           ) : (
