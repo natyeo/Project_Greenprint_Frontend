@@ -20,7 +20,6 @@ function loggedIn() {
 function decodeTokenGetId() {
   const decodedToken = decode(getToken());
   return decodedToken.id;
-  // return decodedTokem.name
 }
 
 export const userService = {

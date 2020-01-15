@@ -13,18 +13,23 @@ class Navbar extends Component {
   render() {
     return (
       <nav className="ui large secondary menu">
-        <div className="left item">
-          <li className="item">
-            <Link to="/">Home</Link>
-          </li>
-        </div>
+      <div className="left item">
+      <li className="item">
+      <Link to="/">Home</Link>
+      </li>
+      </div>
         <div className="right item">
           {this.props.isLoggedIn ? (
+            <div>
+            <li className="item">
+            <Link to="/profile">Dashboard</Link>
+            </li>
             <li className="item">
               <Link to="/" onClick={this.logout}>
                 Sign Out
               </Link>
             </li>
+            </div>
           ) : (
             <div>
               <li className="item">
@@ -34,9 +39,8 @@ class Navbar extends Component {
                 <Link to="/register">Sign Up</Link>
               </li>
             </div>
-
           )}
-        </div>
+      </div>
       </nav>
     );
   }
