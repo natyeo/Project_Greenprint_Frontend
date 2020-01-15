@@ -93,7 +93,9 @@ class Profile extends React.Component {
 
         return (
           <div>
+          <p>
           <h1>My Journeys Dashboard</h1>
+
             <div id="barchart">
             <h3>Carbon(kg) per journey taken by rail, car, or plane</h3>
               <BarChart width={600} height={300} data={barData}
@@ -103,30 +105,35 @@ class Profile extends React.Component {
                 <YAxis  stroke="#ffffff"/>
                 <Tooltip/>
                 <Legend />
-                <Bar dataKey="carbon" fill="#adb1b8" />
+                <Bar dataKey="carbon" fill="#cccccc" />
               </BarChart>
             </div>
+            </p>
 
             <div id="piechart">
+            <p>
               <h3>Distance(miles) travelled by mode of transport</h3>
               <PieChart width={800} height={300}
               margin={{top: 10, right: 10, left: -45, bottom: 30}}>
-                <Pie isAnimationActive={true} data={pieData} cx={400} cy={150} outerRadius={100} fill="#d8b584" label/>
+                <Pie isAnimationActive={true} data={pieData} cx={400} cy={150} outerRadius={100} fill="#e3d1a8" label/>
                 <Tooltip/>
               </PieChart>
+              </p>
             </div>
 
             <div id="sidebar">
+            <p>
               <h3>Total carbon(kg) by mode of transport</h3>
               <BarChart layout="vertical" width={600} height={300} data={verticalChartData}
                 margin={{top: 10, right: 30, left: 100, bottom: 30}}>
                 <CartesianGrid strokeDasharray="3 3"/>
-                <XAxis type="number"/>
-                <YAxis type="category" dataKey="name"/>
+                <XAxis type="number" stroke="#ffffff"/>
+                <YAxis type="category" dataKey="name" stroke="#ffffff"/>
                 <Tooltip/>
                 <Legend />
-                <Bar dataKey="carbon" fill="#8884d8" />
+                <Bar dataKey="carbon" fill="#a0b59f" />
               </BarChart>
+              </p>
             </div>
             <div id="recommendations">
               <h3>Some things you can do to offset your carbon emmissions..</h3>
