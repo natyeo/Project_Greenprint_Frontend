@@ -95,7 +95,7 @@ class Profile extends React.Component {
           <div>
           <h1>My Journeys Dashboard</h1>
             <div id="barchart">
-            <h2>Carbon(kg) per journey taken by rail or car</h2>
+            <h2>Carbon(kg) per journey taken by rail, car, or plane</h2>
               <BarChart width={600} height={300} data={barData}
                 margin={{top: 10, right: 10, left: 100, bottom: 30}}>
                 <CartesianGrid strokeDasharray="3 3"/>
