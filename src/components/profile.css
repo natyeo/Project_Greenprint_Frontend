@@ -6,6 +6,27 @@ body {
   margin-left: -250px;
 
 }
+
+#barchart {
+text-align: left;
+margin-left: -50px;
+ }
+
+h3 {
+   margin-left: -75px;
+}
+
+#piechart {
+text-align: left;
+margin-left: -50px;
+/* padding: -50px; */
+ }
+
+ h3 {
+    margin-left: -75px;
+ }
+
+
 #container {
   display: grid | inline-grid;
   -webkit-box-sizing: border-box;
