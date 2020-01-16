@@ -165,7 +165,7 @@ render() {
     <form onSubmit={this.handleSubmitFlying} className="ui form">
     <div>
     <label>
-    <span className="bold">Origin Aiport</span>
+    <span className="bold">Origin Airport</span>
     <input
     name="flying_from"
     type="text"
@@ -183,7 +183,7 @@ render() {
     type="text"
     value={this.state.flying_to}
     onChange={this.handleChange}
-    required 
+    required
     />
     </label>
     </div>
