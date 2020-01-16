@@ -31,7 +31,8 @@ class Profile extends React.Component {
           method: "GET",
           headers: {
             Accept: "application/json",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*"
           }
         }
       )

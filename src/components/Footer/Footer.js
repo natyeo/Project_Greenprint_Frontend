@@ -18,6 +18,11 @@ const footer = () => {
           Trip to Carbon
           </li>
           </a>
+          <a href="http://impact.brighterplanet.com/" target="_blank" rel="noopener noreferrer">
+          <li>
+          Brighter Planet
+          </li>
+          </a>
           </ul>
         </div>
         <div className="eleven wide column">
@@ -26,7 +31,7 @@ const footer = () => {
         </div>
       </div>
       <div className="tagline">
-      <p>Created with love Project GreenPrint <span>{(new Date().getFullYear())}</span>
+      <p>Created with <a href="https://inhabit.global/" target="_blank" rel="noopener noreferrer">love</a> Project GreenPrint <span>{(new Date().getFullYear())}</span>
       </p>
       </div>
     </div>
