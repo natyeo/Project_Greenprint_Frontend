@@ -19,13 +19,12 @@ class JourneyOptionsFlying extends React.Component {
       user: [id]
     };
     fetch(
-      "https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/travel/record",
+      "https://project-greenprint-backend.herokuapp.com/travel/record",
       {
         method: "POST",
         headers: {
           Accept: "application/json",
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*"
+          "Content-Type": "application/json"
         },
         body: JSON.stringify(data)
       }
@@ -56,28 +55,11 @@ class JourneyOptionsFlying extends React.Component {
       >
       <tbody>
       <tr>
-      <td style={{ fontWeight: 'bold' }} >{this.Capitalize(this.props.results.mode)}</td>
-      <td>Flying from {this.props.results.origin} to {this.props.results.destination}</td>
+      <td style={{ fontWeight: 'bold', fontSize: 20 }} >{this.Capitalize(this.props.results.mode)}</td>
+      <td>from: {this.props.results.origin} <br></br>to: {this.props.results.destination}</td>
+      <td>Carbon: <br></br><span style={{ fontWeight: 'bold', fontSize: 30, color: 'red' }} >{this.props.results.carbon}</span> kg</td>
       <td>Distance: {this.props.results.distance} miles</td>
-      <td>Carbon: <span style={{ fontWeight: 'bold' }} >{this.props.results.carbon}</span> kg</td>
-      <td>This journey is equivalent to <span style={{ fontWeight: 'bold'}}>{this.props.results.barrels_of_oil}</span> barrels of petrol.</td>
-      <td>
-      <a
-      id={this.props.results.mode}
-      target="_blank"
-      rel="noopener noreferrer"
-      href={
-        "https://www.google.com/maps/dir/?api=1&origin=" +
-        this.props.from +
-        "&destination=" +
-        this.props.to +
-        "&travelmode=" +
-        this.props.results.mode
-      }
-      style={{ color: 'blue' }} >
-      Open with Google Maps
-      </a>
-      </td>
+      <td>This journey is equivalent to <span style={{ fontWeight: 'bold', color: 'red'}}>{this.props.results.barrels_of_oil}</span> barrels of petrol.</td>
       <td>
       {isLoggedIn ? (
         this.state.message !== "" ? (

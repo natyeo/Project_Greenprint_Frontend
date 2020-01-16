@@ -32,7 +32,7 @@ class JourneyForm extends React.Component {
   apiCall() {
     const data = { from: this.state.from, to: this.state.to };
     return fetch(
-      "https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/",
+      "https://project-greenprint-backend.herokuapp.com/",
       {
         method: "POST",
         headers: {
@@ -55,7 +55,7 @@ class JourneyForm extends React.Component {
   apiCallFlying() {
     const data = { from: this.state.flying_from, to: this.state.flying_to };
     return fetch(
-      "https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/flights",
+      "https://project-greenprint-backend.herokuapp.com/flights",
       {
         method: "POST",
         headers: {

@@ -2,7 +2,6 @@ import React from "react";
 import {
   BarChart,
   Bar,
-  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -27,13 +26,12 @@ class Profile extends React.Component {
     } else {
       const userId = userService.decodeTokenGetId();
       fetch(
-        `https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/travel/record/user/${userId}`,
+        `https://project-greenprint-backend.herokuapp.com/travel/record/user/${userId}`,
         {
           method: "GET",
           headers: {
             Accept: "application/json",
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*"
+            "Content-Type": "application/json"
           }
         }
       )
@@ -131,8 +129,10 @@ class Profile extends React.Component {
 
       return (
         <div className="dashboard">
+
           <h1>My Journeys Dashboard</h1>
-          <div id="barchart">
+
+          <div id="barchart" className="grouping">
             <h2>Carbon(kg) per journey taken by rail, car, or plane</h2>
             <BarChart
               width={600}
@@ -148,7 +148,8 @@ class Profile extends React.Component {
               <Bar dataKey="carbon" fill="#cccccc" />
             </BarChart>
           </div>
-          <div id="piechart">
+
+          <div id="piechart" className="grouping">
             <h2>Distance(miles) travelled by mode of transport</h2>
             <PieChart width={800} height={300}>
               <Pie
@@ -163,7 +164,8 @@ class Profile extends React.Component {
               <Tooltip />
             </PieChart>
           </div>
-          <div id="sidebar">
+
+          <div id="sidebar" className="grouping">
             <h2>Total carbon(kg) by mode of transport</h2>
             <BarChart
               layout="vertical"
@@ -180,27 +182,34 @@ class Profile extends React.Component {
               <Bar dataKey="carbon" fill="#a0b59f" />
             </BarChart>
           </div>
-          <div id="recommendations">
-            <h2>Some things you can do to offset your carbon emmissions..</h2>
 
-            <p>
-              Invest in carbon offsetting projects like these ones:
-              <a href="https://www.carbonfootprint.com/carbonoffsetprojects.html">
-                {" "}
-                Carbon Footprint
-              </a> and
-              <a href="https://carbonfund.org/">
-                {" "}
-                Carbon Fund.
-              </a>
+          <div id="recommendations" className="grouping">
+            <h2>Offset your carbon</h2>
+            <p>Some things you can do to offset your carbon emmissions..</p>
+            <p>Invest in carbon offsetting projects like these ones:</p>  
+            <ul>
+              <li>  
+                <a target="_blank" rel="noopener noreferrer" href="https://www.carbonfootprint.com/carbonoffsetprojects.html">
+                  Carbon Footprint
+                </a> 
+              </li>
+              <li>
+                <a target="_blank" rel="noopener noreferrer" href="https://carbonfund.org/">
+                  {" "}
+                  Carbon Fund.
+                </a>
+              </li>
+            </ul>
+           
               <br></br>
               When travelling by air, check which airlines are more fuel-efficient. Here is a resource you can use:
-              <a href="https://theicct.org/spotlight/airline-fuel-efficiency">
+              <br></br>
+              <br></br>
+              <a target="_blank" rel="noopener noreferrer" href="https://theicct.org/spotlight/airline-fuel-efficiency">
                 {" "}
                 International Council on Clean Trasportation - Airline fuel efficiency
-              </a>;
-
-            </p>
+              </a>.
+              
           </div>
         </div>
       );

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './Register.css';
 
 class Register extends Component {
   constructor() {
@@ -37,7 +38,7 @@ class Register extends Component {
       redirect: "follow"
     };
     fetch(
-      "https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/user/register",
+      "https://project-greenprint-backend.herokuapp.com/user/register",
       requestOptions
     )
       .then(response => response.json())
@@ -66,51 +67,61 @@ class Register extends Component {
   render() {
     const { name, email, password, password2, message } = this.state;
     return (
-      <div>
-        <form onSubmit={this.onSubmit}>
+      <div className="grouping">
+        <form onSubmit={this.onSubmit} className="ui form">
           <h2>Register</h2>
           {message !== "" && <div role="alert">{message}</div>}
-          <label>Username</label>
-          <input
-            type="text"
-            placeholder="User Name"
-            name="name"
-            value={name}
-            onChange={this.onChange}
-            required
-          />
-          <br />
-          <label>Email</label>
-          <input
-            type="email"
-            placeholder="Email address"
-            name="email"
-            value={email}
-            onChange={this.onChange}
-            required
-          />
-          <br />
-          <label>Password</label>
-          <input
-            type="password"
-            placeholder="Password"
-            name="password"
-            value={password}
-            onChange={this.onChange}
-            required
-          />
-          <br />
-          <label>Password</label>
-          <input
-            type="password"
-            placeholder="Repeat Your Password"
-            name="password2"
-            value={password2}
-            onChange={this.onChange}
-            required
-          />
-          <br />
-          <button type="submit">Register</button>
+          <div className="form-grouping">
+            <label>Username     
+              <input
+                type="text"
+                placeholder="User Name"
+                name="name"
+                value={name}
+                onChange={this.onChange}
+                required
+              />
+            </label>
+          </div>
+          <div className="form-grouping">
+            <label>Email     
+              <input
+                type="email"
+                placeholder="Email address"
+                name="email"
+                value={email}
+                onChange={this.onChange}
+                required
+              />
+            </label>
+          </div>
+          <div className="form-grouping">
+            <label>Password     
+              <input
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={password}
+                onChange={this.onChange}
+                required
+              />
+            </label>
+          </div>
+          <div className="form-grouping">
+            <label>Password confirmation   
+              <input
+                type="password"
+                placeholder="Repeat Your Password"
+                name="password2"
+                value={password2}
+                onChange={this.onChange}
+                required
+              />
+            </label>
+          </div>
+          <div className="form-grouping">
+            <button type="submit" className="ui button">Register</button>
+          </div>
         </form>
       </div>
     );

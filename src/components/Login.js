@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { userService } from "../services/authentication.service";
+import './Login.css';
 
 class Login extends Component {
   constructor() {
@@ -40,13 +41,12 @@ class Login extends Component {
     };
 
     fetch(
-      "https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/user/login",
+      "https://project-greenprint-backend.herokuapp.com/user/login",
       {
         method: "POST",
         headers: {
           Accept: "application/json",
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*"
+          "Content-Type": "application/json"
         },
         body: JSON.stringify(data)
       }
@@ -74,39 +74,45 @@ class Login extends Component {
   render() {
     const { email, password, message } = this.state;
     return (
-      <div>
-        <form onSubmit={this.onSubmit}>
+      <div className="grouping">
+        <form onSubmit={this.onSubmit} className="ui form">
           <h2>Please sign in</h2>
-          {message !== "" && <div role="alert">{message}</div>}
-          <label>Email address</label>
-          <input
-            type="email"
-            placeholder="Email address"
-            name="email"
-            value={email}
-            onChange={this.onChange}
-            required
-          />
-          <br />
-
-          <label>Password</label>
-          <input
-            type="password"
-            placeholder="Password"
-            name="password"
-            value={password}
-            onChange={this.onChange}
-            required
-          />
-          <br />
-
-          <button type="submit">Login</button>
-          <p>
-            Not a member?{" "}
-            <Link to="/register">
-              <span aria-hidden="true"></span> Register here
-            </Link>
-          </p>
+            {message !== "" && <div role="alert">{message}</div>}
+          <div className="form-grouping">
+            <label>Email address
+              <input
+                type="email"
+                placeholder="Email address"
+                name="email"
+                value={email}
+                onChange={this.onChange}
+                required
+              />
+            </label>
+          </div>
+          <div className="form-grouping">
+            <label>Password
+              <input
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={password}
+                onChange={this.onChange}
+                required
+              />
+            </label>
+          </div>
+          <div className="form-grouping">
+            <button className="ui button" type="submit">Login</button>
+          </div>
+          <div className="form-grouping"> 
+            <p>
+              Not a member?{" "}
+              <Link to="/register">
+                <span aria-hidden="true"></span> Register here
+              </Link>
+            </p>
+          </div>
         </form>
       </div>
     );

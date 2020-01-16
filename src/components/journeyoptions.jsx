@@ -19,13 +19,12 @@ class JourneyOptions extends React.Component {
       user: [id]
     };
     fetch(
-      "https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/travel/record",
+      "https://project-greenprint-backend.herokuapp.com/travel/record",
       {
         method: "POST",
         headers: {
           Accept: "application/json",
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*"
+          "Content-Type": "application/json"
         },
         body: JSON.stringify(data)
       }
@@ -56,10 +55,10 @@ class JourneyOptions extends React.Component {
       >
       <tbody>
       <tr>
-      <td style={{ fontWeight: 'bold' }} >{this.Capitalize(this.props.results.mode)}</td>
+      <td style={{ fontWeight: 'bold', fontSize: 20 }} >{this.Capitalize(this.props.results.mode)}</td>
+      <td>Carbon: <span style={{ fontWeight: 'bold', fontSize: 40 }} >{this.props.results.carbon}</span> kg</td>
       <td>Time: {this.props.results.travel_time}</td>
       <td>Distance: {this.props.results.distance} miles</td>
-      <td>Carbon: <span style={{ fontWeight: 'bold' }} >{this.props.results.carbon}</span> kg</td>
       <td>
       <a
       id={this.props.results.mode}

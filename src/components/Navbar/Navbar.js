@@ -7,38 +7,36 @@ class Navbar extends Component {
   logout = () => {
     userService.logout();
     window.location.reload();
-    // this.props.history.push("/");
   };
 
   render() {
     return (
       <nav className="ui large secondary menu">
         <div className="left item">
-          <li className="item">
-            <Link to="/">Home</Link>
+          <li className="item bold">
+            <Link to="/">HOME</Link>
           </li>
         </div>
-        <div className="right item">
-          {this.props.isLoggedIn ? (
-            <div>
+        
+        {this.props.isLoggedIn ? (
+            <div className="right item">
               <li className="item">
-                <Link to="/profile">Dashboard</Link>
+                <Link to="/profile">DASHBOARD</Link>
               </li>
               <li className="item">
-                <span onClick={this.logout}>Sign Out</span>
+                <span onClick={this.logout}>SIGN OUT</span>
               </li>
             </div>
           ) : (
-            <div>
+            <div className="right item">
               <li className="item">
-                <Link to={"/login"}>Sign In</Link>
+                <Link to={"/login"}>SIGN IN</Link>
               </li>
               <li className="item">
-                <Link to="/register">Sign Up</Link>
+                <Link to="/register">SIGN UP</Link>
               </li>
             </div>
-          )}
-        </div>
+          )}   
       </nav>
     );
   }
