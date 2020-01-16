@@ -18,6 +18,11 @@ const footer = () => {
           Trip to Carbon
           </li>
           </a>
+          <a href="http://impact.brighterplanet.com/" target="_blank" rel="noopener noreferrer">
+          <li>
+          Brighter Planet
+          </li>
+          </a>
           </ul>
         </div>
         <div className="eleven wide column">
