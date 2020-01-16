@@ -1,0 +1,9 @@
+.journey-options {
+  border: 1px solid #465940;
+  border-radius: 5px;
+  margin: 0.2rem;
+}
+
+.journey-options tr {
+  height: 100px;
+}

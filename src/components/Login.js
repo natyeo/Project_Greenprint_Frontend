@@ -74,7 +74,7 @@ class Login extends Component {
   render() {
     const { email, password, message } = this.state;
     return (
-      <div className="grouping">
+      <div className="box-grouping">
         <form onSubmit={this.onSubmit} className="ui form">
           <h2>Please sign in</h2>
             {message !== "" && <div role="alert">{message}</div>}

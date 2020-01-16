@@ -129,12 +129,12 @@ render() {
     </div>
 
     <h2>Carbon Calculator</h2>
-    <div className="grouping">
+    <div className="box-grouping">
     <h3>Ground Transport</h3>
     <form onSubmit={this.handleSubmit} className="ui form">
     <div>
     <label>
-    <span className="bold">FROM</span>
+    <span className="bold">From</span>
     <input
     name="from"
     type="text"
@@ -146,7 +146,7 @@ render() {
     </div>
     <div>
     <label>
-    <span className="bold">TO</span>
+    <span className="bold">To</span>
     <input
     name="to"
     type="text"
