@@ -22,7 +22,7 @@ const footer = () => {
         </div>
         <div className="eleven wide column">
           <h3>Calculations</h3>
-          <p>This app uses calculates the carbon data based around the distance travelled and the mode of travel used. If driving, the calculation is based on an average car, if using public transit, an average train is assumed. Walking and cycling will always produce no carbon so no calculation happens. Carbon produced is pulled from the Trip to Carbon API (for rail and driving journeys) and from Brighter Planet API (for flights).</p>
+          <p>This app calculates the carbon data based around the distance travelled and the mode of travel used. If driving, the calculation is based on an average car, if using public transit, an average train is assumed. Walking and cycling will always produce no carbon so no calculation happens. The Carbon produced is pulled from the Trip to Carbon API (for rail and driving journeys) and from Brighter Planet API (for flights).</p>
         </div>
       </div>
       <div className="tagline">
