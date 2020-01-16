@@ -24,7 +24,7 @@ class Navbar extends Component {
                 <Link to="/profile">Dashboard</Link>
               </li>
               <li className="item">
-                <button onClick={this.logout}>Sign Out</button>
+                <span onClick={this.logout}>Sign Out</span>
               </li>
             </div>
           ) : (

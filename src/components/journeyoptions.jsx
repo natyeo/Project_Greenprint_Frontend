@@ -82,10 +82,10 @@ class JourneyOptions extends React.Component {
         this.state.message !== "" ? (
           <div role="alert">{this.state.message}</div>
         ) : (
-          <button onClick={this.saveJourneyToDB} style={{ color: 'blue' }} >Save journey</button>
+          <a onClick={this.saveJourneyToDB} style={{cursor: 'pointer', color: 'blue' }}>Save journey</a>
         )
       ) : (
-        <Link style={{ color: 'blue' }} to="/login">Save journey</Link>
+        <div />
       )}
       </td>
       </tr>
