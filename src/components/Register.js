@@ -29,7 +29,8 @@ class Register extends Component {
       password2: this.state.password2
     };
     var myHeaders = new Headers();
-    myHeaders.append({"Content-Type": "application/json", "Access-Control-Allow-Origin": "*"});
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Access-Control-Allow-Origin", "*");
     var raw = JSON.stringify(data);
     var requestOptions = {
       method: "POST",
