@@ -171,6 +171,7 @@ render() {
     type="text"
     value={this.state.flying_from}
     onChange={this.handleChange}
+    required
     />
     </label>
     </div>
@@ -182,6 +183,7 @@ render() {
     type="text"
     value={this.state.flying_to}
     onChange={this.handleChange}
+    required 
     />
     </label>
     </div>
