@@ -130,7 +130,7 @@ class Profile extends React.Component {
       const verticalChartData = [transitCarbon, drivingCarbon, flyingCarbon];
 
       return (
-        <div>
+        <div className="dashboard">
           <h1>My Journeys Dashboard</h1>
           <div id="barchart">
             <h2>Carbon(kg) per journey taken by rail, car, or plane</h2>
@@ -138,7 +138,7 @@ class Profile extends React.Component {
               width={600}
               height={300}
               data={barData}
-              margin={{ top: 10, right: 10, left: 100, bottom: 30 }}
+              margin={{ top: 10, right: 30, left: -10, bottom: 30 }}
             >
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="name" stroke="#ffffff" />
@@ -170,7 +170,7 @@ class Profile extends React.Component {
               width={600}
               height={300}
               data={verticalChartData}
-              margin={{ top: 10, right: 30, left: 100, bottom: 30 }}
+              margin={{ top: 10, right: 30, left: 0, bottom: 30 }}
             >
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis type="number" stroke="#ffffff"/>
