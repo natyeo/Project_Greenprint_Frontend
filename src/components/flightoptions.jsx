@@ -62,23 +62,6 @@ class JourneyOptionsFlying extends React.Component {
       <td>Carbon: <span style={{ fontWeight: 'bold' }} >{this.props.results.carbon}</span> kg</td>
       <td>This journey is equivalent to <span style={{ fontWeight: 'bold'}}>{this.props.results.barrels_of_oil}</span> barrels of petrol.</td>
       <td>
-      <a
-      id={this.props.results.mode}
-      target="_blank"
-      rel="noopener noreferrer"
-      href={
-        "https://www.google.com/maps/dir/?api=1&origin=" +
-        this.props.from +
-        "&destination=" +
-        this.props.to +
-        "&travelmode=" +
-        this.props.results.mode
-      }
-      style={{ color: 'blue' }} >
-      Open with Google Maps
-      </a>
-      </td>
-      <td>
       {isLoggedIn ? (
         this.state.message !== "" ? (
           <div role="alert">{this.state.message}</div>
