@@ -26,6 +26,11 @@
   align-items: center;
 }
 
+.modal-header {
+  color: black;
+}
+
+
 .loading {
   margin-top: 20px;
   height: 25%;
