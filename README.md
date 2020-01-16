@@ -52,7 +52,7 @@ npm test
 
 ### Overview of the app
 
-![overview](pictures/overview.png)
+![overview](https://user-images.githubusercontent.com/29664811/72539764-c2e0d680-3877-11ea-9141-e97056b3c1ea.png)
 
 ### Plan a ground journey
 
