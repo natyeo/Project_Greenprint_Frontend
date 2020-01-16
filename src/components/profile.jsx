@@ -2,7 +2,6 @@ import React from "react";
 import {
   BarChart,
   Bar,
-  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -47,7 +46,7 @@ class Profile extends React.Component {
     cyclingDistance,
     drivingDistance,
     transitDistance,
-    walkingDistance, 
+    walkingDistance,
     flyingDistance
   ) {
     return this.state.journeys.forEach(function(elem) {
@@ -129,25 +128,28 @@ class Profile extends React.Component {
       const verticalChartData = [transitCarbon, drivingCarbon, flyingCarbon];
 
       return (
-        <div>
+        <div className="dashboard">
+
           <h1>My Journeys Dashboard</h1>
-          <div id="barchart">
+
+          <div id="barchart" className="grouping">
             <h2>Carbon(kg) per journey taken by rail, car, or plane</h2>
             <BarChart
               width={600}
               height={300}
               data={barData}
-              margin={{ top: 10, right: 10, left: 100, bottom: 30 }}
+              margin={{ top: 10, right: 30, left: -10, bottom: 30 }}
             >
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
+              <XAxis dataKey="name" stroke="#ffffff" />
+              <YAxis stroke="#ffffff"/>
               <Tooltip />
               <Legend />
-              <Bar dataKey="carbon" fill="#8884d8" />
+              <Bar dataKey="carbon" fill="#cccccc" />
             </BarChart>
           </div>
-          <div id="piechart">
+
+          <div id="piechart" className="grouping">
             <h2>Distance(miles) travelled by mode of transport</h2>
             <PieChart width={800} height={300}>
               <Pie
@@ -156,57 +158,58 @@ class Profile extends React.Component {
                 cx={400}
                 cy={150}
                 outerRadius={100}
-                fill="#8884d8"
+                fill="#e3d1a8"
                 label
               />
               <Tooltip />
             </PieChart>
           </div>
-          <div id="sidebar">
+
+          <div id="sidebar" className="grouping">
             <h2>Total carbon(kg) by mode of transport</h2>
             <BarChart
               layout="vertical"
               width={600}
               height={300}
               data={verticalChartData}
-              margin={{ top: 10, right: 30, left: 100, bottom: 30 }}
+              margin={{ top: 10, right: 30, left: 0, bottom: 30 }}
             >
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis type="number" />
-              <YAxis type="category" dataKey="name" />
+              <XAxis type="number" stroke="#ffffff"/>
+              <YAxis type="category" dataKey="name" stroke="#ffffff" />
               <Tooltip />
               <Legend />
-              <Bar dataKey="carbon" fill="#8884d8" />
+              <Bar dataKey="carbon" fill="#a0b59f" />
             </BarChart>
           </div>
-          <div id="recommendations">
-            <h2>Some things you can do to offset your carbon emmissions..</h2>
 
-            <p>
-              Invest in carbon offsetting projects like these ones: 
-              <ul>
-                <li><a target="_blank" href="https://www.carbonfootprint.com/carbonoffsetprojects.html">
-                  {" "}
+          <div id="recommendations" className="grouping">
+            <h2>Offset your carbon</h2>
+            <p>Some things you can do to offset your carbon emmissions..</p>
+            <p>Invest in carbon offsetting projects like these ones:</p>  
+            <ul>
+              <li>  
+                <a target="_blank" rel="noopener noreferrer" href="https://www.carbonfootprint.com/carbonoffsetprojects.html">
                   Carbon Footprint
                 </a> 
-                </li>
-                <li><a target="_blank" href="https://carbonfund.org/">
+              </li>
+              <li>
+                <a target="_blank" rel="noopener noreferrer" href="https://carbonfund.org/">
                   {" "}
                   Carbon Fund.
                 </a>
-                </li>
-              </ul>
+              </li>
+            </ul>
            
               <br></br>
               When travelling by air, check which airlines are more fuel-efficient. Here is a resource you can use:
               <br></br>
               <br></br>
-              <a target="_blank" href="https://theicct.org/spotlight/airline-fuel-efficiency">
+              <a target="_blank" rel="noopener noreferrer" href="https://theicct.org/spotlight/airline-fuel-efficiency">
                 {" "}
                 International Council on Clean Trasportation - Airline fuel efficiency
               </a>.
               
-            </p>
           </div>
         </div>
       );

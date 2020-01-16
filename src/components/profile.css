@@ -1,12 +1,24 @@
-body {
-  margin: 0;
+.recharts-wrapper {
+  margin : 0 auto;
 }
+
+
+.grouping {
+  box-sizing: border-box;
+  margin: 20px 0;
+  padding: 20px 10px;
+  background-color: #5B7355;
+  border-radius: 10px;
+  box-shadow: 0px 14px 28px #41523b, 0px 10px 10px #3a4b35;
+}
+
 #container {
+  display: grid inline-grid;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 10px;
-  width: 800px;
-  height: 800px;
+  width: 400px;
+  height: 400px;
   background-color: #fff;
 }
