@@ -184,11 +184,22 @@ class Profile extends React.Component {
             <h2>Some things you can do to offset your carbon emmissions..</h2>
 
             <p>
-              Invest in carbon offsetting projects like this one:
+              Invest in carbon offsetting projects like these ones: 
               <a href="https://www.carbonfootprint.com/carbonoffsetprojects.html">
                 {" "}
-                carbonfootprint.com
+                Carbon Footprint
+              </a> and 
+              <a href="https://carbonfund.org/">
+                {" "}
+                Carbon Fund.
               </a>
+              <br></br>
+              When travelling by air, check which airlines are more fuel-efficient. Here is a resource you can use:
+              <a href="https://theicct.org/spotlight/airline-fuel-efficiency">
+                {" "}
+                International Council on Clean Trasportation - Airline fuel efficiency
+              </a>;
+              
             </p>
           </div>
         </div>
