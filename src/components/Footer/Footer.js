@@ -8,16 +8,16 @@ const footer = () => {
         <div className="three wide column">
           <h3>Resources</h3>
           <ul>
-            <a href="https://developers.google.com/maps/documentation/directions/start" target="_blank" rel="noopener noreferrer">
-              <li>
-                Google Directions
-              </li>
-            </a>
-            <a href="https://triptocarbon.xyz/" target="_blank" rel="noopener noreferrer">
-              <li>
-                Trip to Carbon
-              </li>
-            </a>
+          <a href="https://developers.google.com/maps/documentation/directions/start" target="_blank" rel="noopener noreferrer">
+          <li>
+          Google Directions
+          </li>
+          </a>
+          <a href="https://triptocarbon.xyz/" target="_blank" rel="noopener noreferrer">
+          <li>
+          Trip to Carbon
+          </li>
+          </a>
           </ul>
         </div>
         <div className="eleven wide column">
@@ -26,8 +26,10 @@ const footer = () => {
         </div>
       </div>
       <div className="tagline">
-          <p>Created with love Project GreenPrint <span>{(new Date().getFullYear())}</span>
-          </p>
+      <a href="inhabit.global" target="_blank" rel="noopener noreferrer">
+      <p>Created with love Project GreenPrint <span>{(new Date().getFullYear())}</span>
+      </p>
+      </a>
       </div>
     </div>
 
