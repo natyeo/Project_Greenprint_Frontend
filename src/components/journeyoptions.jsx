@@ -19,13 +19,12 @@ class JourneyOptions extends React.Component {
       user: [id]
     };
     fetch(
-      "https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/travel/record",
+      "https://project-greenprint-backend.herokuapp.com/travel/record",
       {
         method: "POST",
         headers: {
           Accept: "application/json",
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*"
+          "Content-Type": "application/json"
         },
         body: JSON.stringify(data)
       }

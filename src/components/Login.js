@@ -40,13 +40,12 @@ class Login extends Component {
     };
 
     fetch(
-      "https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/user/login",
+      "https://project-greenprint-backend.herokuapp.com/user/login",
       {
         method: "POST",
         headers: {
           Accept: "application/json",
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*"
+          "Content-Type": "application/json"
         },
         body: JSON.stringify(data)
       }
@@ -78,7 +77,7 @@ class Login extends Component {
         <form onSubmit={this.onSubmit}>
           <h2>Please sign in</h2>
           {message !== "" && <div role="alert">{message}</div>}
-          <label>Email address</label>
+          <label>Email address     </label>
           <input
             type="email"
             placeholder="Email address"
@@ -89,7 +88,7 @@ class Login extends Component {
           />
           <br />
 
-          <label>Password</label>
+          <label>Password     </label>
           <input
             type="password"
             placeholder="Password"
@@ -99,7 +98,7 @@ class Login extends Component {
             required
           />
           <br />
-
+          <br></br>
           <button type="submit">Login</button>
           <p>
             Not a member?{" "}

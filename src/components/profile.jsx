@@ -27,13 +27,12 @@ class Profile extends React.Component {
     } else {
       const userId = userService.decodeTokenGetId();
       fetch(
-        `https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/travel/record/user/${userId}`,
+        `https://project-greenprint-backend.herokuapp.com/travel/record/user/${userId}`,
         {
           method: "GET",
           headers: {
             Accept: "application/json",
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*"
+            "Content-Type": "application/json"
           }
         }
       )

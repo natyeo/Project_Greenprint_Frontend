@@ -37,7 +37,7 @@ class Register extends Component {
       redirect: "follow"
     };
     fetch(
-      "https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/user/register",
+      "https://project-greenprint-backend.herokuapp.com/user/register",
       requestOptions
     )
       .then(response => response.json())
@@ -70,7 +70,7 @@ class Register extends Component {
         <form onSubmit={this.onSubmit}>
           <h2>Register</h2>
           {message !== "" && <div role="alert">{message}</div>}
-          <label>Username</label>
+          <label>Username     </label>
           <input
             type="text"
             placeholder="User Name"
@@ -80,7 +80,7 @@ class Register extends Component {
             required
           />
           <br />
-          <label>Email</label>
+          <label>Email     </label>
           <input
             type="email"
             placeholder="Email address"
@@ -90,7 +90,7 @@ class Register extends Component {
             required
           />
           <br />
-          <label>Password</label>
+          <label>Password     </label>
           <input
             type="password"
             placeholder="Password"
@@ -100,7 +100,7 @@ class Register extends Component {
             required
           />
           <br />
-          <label>Password</label>
+          <label>Password     </label>
           <input
             type="password"
             placeholder="Repeat Your Password"
@@ -110,6 +110,7 @@ class Register extends Component {
             required
           />
           <br />
+          <br></br>
           <button type="submit">Register</button>
         </form>
       </div>
