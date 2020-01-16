@@ -140,6 +140,7 @@ render() {
     type="text"
     value={this.state.from}
     onChange={this.handleChange}
+    required
     />
     </label>
     </div>
@@ -151,6 +152,7 @@ render() {
     type="text"
     value={this.state.to}
     onChange={this.handleChange}
+    required
     />
     </label>
     </div>
