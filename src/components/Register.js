@@ -68,7 +68,7 @@ class Register extends Component {
   render() {
     const { name, email, password, password2, message } = this.state;
     return (
-      <div className="grouping">
+      <div className="box-grouping">
         <form onSubmit={this.onSubmit} className="ui form">
           <h2>Register</h2>
           {message !== "" && <div role="alert">{message}</div>}

@@ -133,7 +133,7 @@ class Profile extends React.Component {
 
           <h1>My Journeys Dashboard</h1>
 
-          <div id="barchart" className="grouping">
+          <div id="barchart" className="box-grouping">
             <h2>Carbon(kg) per journey taken by rail, car, or plane</h2>
             <BarChart
               width={600}
@@ -150,7 +150,7 @@ class Profile extends React.Component {
             </BarChart>
           </div>
 
-          <div id="piechart" className="grouping">
+          <div id="piechart" className="box-grouping">
             <h2>Distance(miles) travelled by mode of transport</h2>
             <PieChart width={800} height={300}>
               <Pie
@@ -166,7 +166,7 @@ class Profile extends React.Component {
             </PieChart>
           </div>
 
-          <div id="sidebar" className="grouping">
+          <div id="sidebar" className="box-grouping">
             <h2>Total carbon(kg) by mode of transport</h2>
             <BarChart
               layout="vertical"
@@ -184,7 +184,7 @@ class Profile extends React.Component {
             </BarChart>
           </div>
 
-          <div id="recommendations" className="grouping">
+          <div id="recommendations" className="box-grouping">
             <h2>Offset your carbon</h2>
             <p>Some things you can do to offset your carbon emmissions..</p>
             <p>Invest in carbon offsetting projects like these ones:</p>  
