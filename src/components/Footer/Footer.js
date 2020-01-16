@@ -26,10 +26,8 @@ const footer = () => {
         </div>
       </div>
       <div className="tagline">
-      <a href="inhabit.global" target="_blank" rel="noopener noreferrer">
       <p>Created with love Project GreenPrint <span>{(new Date().getFullYear())}</span>
       </p>
-      </a>
       </div>
     </div>
 
