@@ -81,9 +81,9 @@ npm test
 API runs with the following technologies:
 
 - [Node JS](https://nodejs.org/en/)
-- [Express JS](https://expressjs.com/)
+- [React](https://reactjs.org/)
 
 API tested with the following frameworks:
 
 - [Jest](https://jestjs.io/)
-- [Supertest](https://github.com/visionmedia/supertest)
+- [Cypress](https://www.cypress.io/)
