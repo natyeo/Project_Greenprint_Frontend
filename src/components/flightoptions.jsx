@@ -83,7 +83,7 @@ class JourneyOptionsFlying extends React.Component {
         this.state.message !== "" ? (
           <div role="alert">{this.state.message}</div>
         ) : (
-          <span onClick={this.saveJourneyToDB} style={{ color: 'blue' }}>Save journey</span>
+          <a onClick={this.saveJourneyToDB} style={{cursor: 'pointer', color: 'blue' }}>Save journey</a>
         )
       ) : (
         <div />

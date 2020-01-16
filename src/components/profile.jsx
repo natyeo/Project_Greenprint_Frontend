@@ -48,7 +48,8 @@ class Profile extends React.Component {
     cyclingDistance,
     drivingDistance,
     transitDistance,
-    walkingDistance
+    walkingDistance, 
+    flyingDistance
   ) {
     return this.state.journeys.forEach(function(elem) {
       if (elem.mode === "bicycling") {
@@ -59,6 +60,8 @@ class Profile extends React.Component {
         transitDistance.value += elem.distance;
       } else if (elem.mode === "walking") {
         walkingDistance.value += elem.distance;
+      } else if (elem.mode === "flying") {
+        flyingDistance.value += elem.distance
       }
     });
   }
@@ -74,12 +77,14 @@ class Profile extends React.Component {
     }, []);
   }
 
-  carbonByMode(transitCarbon, drivingCarbon) {
+  carbonByMode(transitCarbon, drivingCarbon, flyingCarbon) {
     return this.state.journeys.forEach(function(elem) {
       if (elem.mode === "transit") {
         transitCarbon.carbon += elem.carbon;
       } else if (elem.mode === "driving") {
         drivingCarbon.carbon += elem.carbon;
+      } else if (elem.mode === "flying") {
+        flyingCarbon.carbon += elem.carbon
       }
     });
   }
@@ -98,9 +103,11 @@ class Profile extends React.Component {
       const drivingDistance = { name: "Driving", value: 0 };
       const transitDistance = { name: "Public transport", value: 0 };
       const walkingDistance = { name: "Walking", value: 0 };
+      const flyingDistance = { name: "Flying", value: 0 };
 
       const transitCarbon = { name: "Public transport", carbon: 0 };
       const drivingCarbon = { name: "Driving", carbon: 0 };
+      const flyingCarbon = { name: "Flying", carbon: 0 };
 
       const barData = this.carbonPerJourney(this.state.journeys);
 
@@ -108,17 +115,19 @@ class Profile extends React.Component {
         cyclingDistance,
         drivingDistance,
         transitDistance,
-        walkingDistance
+        walkingDistance,
+        flyingDistance
       );
       const pieData = [
         cyclingDistance,
         drivingDistance,
         transitDistance,
-        walkingDistance
+        walkingDistance,
+        flyingDistance
       ];
 
-      this.carbonByMode(transitCarbon, drivingCarbon);
-      const verticalChartData = [transitCarbon, drivingCarbon];
+      this.carbonByMode(transitCarbon, drivingCarbon, flyingCarbon);
+      const verticalChartData = [transitCarbon, drivingCarbon, flyingCarbon];
 
       return (
         <div>
