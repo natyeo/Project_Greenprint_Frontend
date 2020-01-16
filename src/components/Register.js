@@ -7,7 +7,8 @@ class Register extends Component {
       name: "",
       email: "",
       password: "",
-      password2: ""
+      password2: "",
+      message: ""
     };
   }
 
@@ -39,18 +40,36 @@ class Register extends Component {
       "https://cors-anywhere.herokuapp.com/https://project-greenprint-backend.herokuapp.com/user/register",
       requestOptions
     )
-      .then(response => response.text())
-      .then(result => console.log(result))
+      .then(response => response.json())
+      .then(result => {
+        this.setState({
+          message: ""
+        });
+        if (
+          result.password === "Password must be at least 6 characters" ||
+          result.password2 === "Passwords must match"
+        ) {
+          this.setState({
+            message: "Passwords must match and be at least 6 characters"
+          });
+        } else if (result.email === "Email already exists") {
+          this.setState({
+            message: "Email already exists"
+          });
+        } else {
+          this.props.history.push("/login");
+        }
+      })
       .catch(error => console.log("error", error));
   };
 
   render() {
-    const { name, email, password, password2 } = this.state;
+    const { name, email, password, password2, message } = this.state;
     return (
       <div>
         <form onSubmit={this.onSubmit}>
           <h2>Register</h2>
-
+          {message !== "" && <div role="alert">{message}</div>}
           <label>Username</label>
           <input
             type="text"

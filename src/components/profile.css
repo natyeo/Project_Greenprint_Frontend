@@ -1,7 +1,3 @@
-h1 {
-  text-align: left;
-   margin-left: -75px;
-}
 
 
 
@@ -9,42 +5,15 @@ body {
   margin: 0;
 }
 
-/* h1 {
-   margin-left: -75px;
-} */
+
 
 
 .recharts-wrapper {
-  margin-left: -250px;
+  margin-centre: -250px;
 
 }
 
 
-
-#barchart {
-text-align: left;
-margin-left: -50px;
- }
-
-h3 {
-   margin-left: -75px;
-}
-
-#piechart {
-text-align: left;
-margin-left: -50px;
-/* padding: -50px; */
- }
-
- h3 {
-    margin-left: -75px;
- }
-
- #sidebar {
- text-align: left;
- margin-left: -15px;
- /* padding: -50px; */
-  }
 
 
 #container {
