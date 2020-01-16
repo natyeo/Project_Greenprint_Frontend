@@ -185,20 +185,27 @@ class Profile extends React.Component {
 
             <p>
               Invest in carbon offsetting projects like these ones: 
-              <a href="https://www.carbonfootprint.com/carbonoffsetprojects.html">
-                {" "}
-                Carbon Footprint
-              </a> and 
-              <a href="https://carbonfund.org/">
-                {" "}
-                Carbon Fund.
-              </a>
+              <ul>
+                <li><a target="_blank" href="https://www.carbonfootprint.com/carbonoffsetprojects.html">
+                  {" "}
+                  Carbon Footprint
+                </a> 
+                </li>
+                <li><a target="_blank" href="https://carbonfund.org/">
+                  {" "}
+                  Carbon Fund.
+                </a>
+                </li>
+              </ul>
+           
               <br></br>
               When travelling by air, check which airlines are more fuel-efficient. Here is a resource you can use:
-              <a href="https://theicct.org/spotlight/airline-fuel-efficiency">
+              <br></br>
+              <br></br>
+              <a target="_blank" href="https://theicct.org/spotlight/airline-fuel-efficiency">
                 {" "}
                 International Council on Clean Trasportation - Airline fuel efficiency
-              </a>;
+              </a>.
               
             </p>
           </div>

@@ -56,10 +56,10 @@ class JourneyOptions extends React.Component {
       >
       <tbody>
       <tr>
-      <td style={{ fontWeight: 'bold' }} >{this.Capitalize(this.props.results.mode)}</td>
+      <td style={{ fontWeight: 'bold', fontSize: 20 }} >{this.Capitalize(this.props.results.mode)}</td>
+      <td>Carbon: <span style={{ fontWeight: 'bold', fontSize: 40 }} >{this.props.results.carbon}</span> kg</td>
       <td>Time: {this.props.results.travel_time}</td>
       <td>Distance: {this.props.results.distance} miles</td>
-      <td>Carbon: <span style={{ fontWeight: 'bold' }} >{this.props.results.carbon}</span> kg</td>
       <td>
       <a
       id={this.props.results.mode}
