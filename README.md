@@ -15,6 +15,10 @@ Visit our site at https://project-greenprint-frontend.herokuapp.com/
 
 You can use this with our backend API: `https://github.com/natyeo/Project_Greenprint_Backend` or your own.
 
+### DEMO
+
+![](https://github.com/natyeo/Project_Greenprint_Frontend/blob/master/pictures/Project%20Greenprint.gif?raw=true)
+
 ### Team
 
 <a href="https://github.com/elfiyang16" target="new"><img src="https://avatars3.githubusercontent.com/u/29664811?s=400&v=4" width="60" height="60" hspace="5" title="Elfi Yang"></a>
