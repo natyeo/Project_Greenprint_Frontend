@@ -31,49 +31,43 @@ class JourneyForm extends React.Component {
 
   apiCall() {
     const data = { from: this.state.from, to: this.state.to };
-    return fetch(
-      "https://project-greenprint-backend.herokuapp.com/",
-      {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*"
-        },
-        body: JSON.stringify(data)
-      }
-    )
-    .then(data => data.json())
-    .then(body => {
-      this.setState({
-        options: body,
-        loading: false
-      });
-      return body;
+    return fetch("https://project-greenprint-backend.herokuapp.com/", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      },
+      body: JSON.stringify(data)
     })
+      .then(data => data.json())
+      .then(body => {
+        this.setState({
+          options: body,
+          loading: false
+        });
+        return body;
+      });
   }
 
   apiCallFlying() {
     const data = { from: this.state.flying_from, to: this.state.flying_to };
-    return fetch(
-      "https://project-greenprint-backend.herokuapp.com/flights",
-      {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-      }
-    )
-    .then(data => data.json())
-    .then(body => {
-      this.setState({
-        options: body,
-        loading: false
-      });
-      return body;
+    return fetch("https://project-greenprint-backend.herokuapp.com/flights", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
     })
+      .then(data => data.json())
+      .then(body => {
+        this.setState({
+          options: body,
+          loading: false
+        });
+        return body;
+      });
   }
 
   handleSubmit = event => {
@@ -86,21 +80,26 @@ class JourneyForm extends React.Component {
     this.apiCallFlying();
     this.setState({ loading: true });
     event.preventDefault();
-  }
+  };
 
   journeyOptionsList() {
     const startPoint = this.state.from;
     const endPoint = this.state.to;
     if (this.state.options.error) {
-      return(<BadRequestError error={this.state.options.error} description={this.state.options.description}/>)
+      return (
+        <BadRequestError
+          error={this.state.options.error}
+          description={this.state.options.description}
+        />
+      );
     }
     return this.state.options.map(function(elem, i) {
       return (
         <JourneyOptions
-        results={elem}
-        key={i}
-        from={startPoint}
-        to={endPoint}
+          results={elem}
+          key={i}
+          from={startPoint}
+          to={endPoint}
         />
       );
     });
@@ -109,109 +108,108 @@ class JourneyForm extends React.Component {
   journeyOptionsListFlying() {
     const startPoint = this.state.flying_from;
     const endPoint = this.state.flying_to;
-    const object = this.state.options
+    const object = this.state.options;
     if (this.state.options.error) {
-      return(<BadRequestError error={this.state.options.error} description={this.state.options.description}/>)
+      return (
+        <BadRequestError
+          error={this.state.options.error}
+          description={this.state.options.description}
+        />
+      );
     }
     return (
-      <JourneyOptionsFlying
-      results={object}
-      from={startPoint}
-      to={endPoint}
-      />
+      <JourneyOptionsFlying results={object} from={startPoint} to={endPoint} />
     );
-}
+  }
 
-render() {
-  return (
-    <div>
-    <div>
-    <Welcome name="there" />
-    </div>
+  render() {
+    return (
+      <div>
+        <div>
+          <Welcome name="there" />
+        </div>
 
-    <h2>Carbon Calculator</h2>
-    <div className="box-grouping">
-    <h3>Ground Transport</h3>
-    <form onSubmit={this.handleSubmit} className="ui form">
-    <div>
-    <label>
-    <span className="bold">From</span>
-    <input
-    name="from"
-    type="text"
-    value={this.state.from}
-    onChange={this.handleChange}
-    required
-    />
-    </label>
-    </div>
-    <div>
-    <label>
-    <span className="bold">To</span>
-    <input
-    name="to"
-    type="text"
-    value={this.state.to}
-    onChange={this.handleChange}
-    required
-    />
-    </label>
-    </div>
-    <div>
-    <input className="ui button" type="submit" value="Submit" />
-    </div>
-    </form>
+        <h2>Carbon Calculator</h2>
+        <div className="box-grouping">
+          <h3>Ground Transport</h3>
+          <form onSubmit={this.handleSubmit} className="ui form">
+            <div>
+              <label>
+                <span className="bold">From</span>
+                <input
+                  name="from"
+                  type="text"
+                  value={this.state.from}
+                  onChange={this.handleChange}
+                  required
+                />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span className="bold">To</span>
+                <input
+                  name="to"
+                  type="text"
+                  value={this.state.to}
+                  onChange={this.handleChange}
+                  required
+                />
+              </label>
+            </div>
+            <div>
+              <input className="ui button" type="submit" value="Submit" />
+            </div>
+          </form>
 
-    <h3>Flights</h3>
-    <form onSubmit={this.handleSubmitFlying} className="ui form">
-    <div>
-    <label>
-    <span className="bold">Origin Airport</span>
-    <input
-    name="flying_from"
-    type="text"
-    value={this.state.flying_from}
-    onChange={this.handleChange}
-    required
-    />
-    </label>
-    </div>
-    <div>
-    <label>
-    <span className="bold">Destination Airport</span>
-    <input
-    name="flying_to"
-    type="text"
-    value={this.state.flying_to}
-    onChange={this.handleChange}
-    required
-    />
-    </label>
-    </div>
-    <div>
-    <input className="ui button" type="submit" value="Submit" />
-    </div>
-    </form>
-    </div>
+          <h3>Flights</h3>
+          <form onSubmit={this.handleSubmitFlying} className="ui form">
+            <div>
+              <label>
+                <span className="bold">Origin Airport</span>
+                <input
+                  name="flying_from"
+                  type="text"
+                  value={this.state.flying_from}
+                  onChange={this.handleChange}
+                  required
+                />
+              </label>
+            </div>
+            <div>
+              <label>
+                <span className="bold">Destination Airport</span>
+                <input
+                  name="flying_to"
+                  type="text"
+                  value={this.state.flying_to}
+                  onChange={this.handleChange}
+                  required
+                />
+              </label>
+            </div>
+            <div>
+              <input className="ui button" type="submit" value="Submit" />
+            </div>
+          </form>
+        </div>
 
-    {this.state.options ? (
-      <div className="grouping_results">
-      <h2>Your travel results</h2>
-      <div className="grouping_table">
-      {this.state.options.mode === "flying" ? (
-        this.journeyOptionsListFlying()
-      ) : (
-        this.journeyOptionsList()
-      )}
+        {this.state.options ? (
+          <div className="grouping_results">
+            <h2>Your travel results</h2>
+            <div className="grouping_table">
+              {this.state.options.mode === "flying"
+                ? this.journeyOptionsListFlying()
+                : this.journeyOptionsList()}
+            </div>
+          </div>
+        ) : (
+          <> </>
+        )}
+        {this.state.loading ? <Modal /> : <> </>}
       </div>
-      </div>
-    ) : (
-      <> </>
-    )}
-    {this.state.loading ? <Modal /> : <> </>}
-    </div>
-  );
-}
+    );
+  }
 }
 
 export default JourneyForm;
