@@ -8,7 +8,7 @@ const modal = () => {
       <div className="modal-wrapper">
         <div className="modal-content">
           <div className="modal-header">
-            <h2>Loading data</h2>
+            <h2 className="modal-header">Loading data</h2>
           </div>
           <div className="modal-body">
             <p>Patience now</p>

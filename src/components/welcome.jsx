@@ -4,9 +4,11 @@ function Welcome(props) {
   return (
     <div className="about-app">
       <h1>GreenPrint</h1>
-      <p className="hello">Hello {props.name}!</p>
-      <p>Small introduction text regarding the service and what to do here. This can say what our app does. Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
-      <p>Small introduction text regarding the service and what to do here. This can say what our app does. Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
+      <p>Hello {props.name}!</p>
+      <p>GreenPrint is an app intended to help you calculate and monitor the amount of carbon your travel produces on a per journey basis. If you enter two locations in the form below the app will generate several routes by mode of travel (driving, public transport, walking, and cycling). You can also calculate the carbon footprint for air travel. 
+        <br></br>
+        Sign up to save your journeys and see your carbon footprint dashboard. 
+        </p>
     </div>
   )
 }

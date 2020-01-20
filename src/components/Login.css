@@ -1,0 +1,15 @@
+.form-grouping {
+  margin-top: 20px;
+}
+
+@media (min-width: 768px){
+
+  .ui.form input[type=text], 
+  .ui.form input[type=email],
+  .ui.form input[type=password] {
+    width: 50%;
+    display: block;
+    margin: auto;
+  }
+
+}
