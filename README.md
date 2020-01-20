@@ -11,7 +11,7 @@
 
 A travel app for the environmentally conscious. Simply enter origin and destination locations in the search function and receive available routes for transit, car, cycle, walking and flight along with their carbon emissions. Sign up for additional features such as being able to save journeys and view them in your personalised dashboard!
 
-Visit our site at https://project-greenprint-frontend.herokuapp.com/
+Visit our site at https://project-greenprint.herokuapp.com/
 
 You can use this with our backend API: `https://github.com/natyeo/Project_Greenprint_Backend` or your own.
 

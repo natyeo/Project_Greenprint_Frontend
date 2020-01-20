@@ -100,11 +100,11 @@ class Profile extends React.Component {
     } else {
       const cyclingDistance = { name: "Cycling", value: 0 };
       const drivingDistance = { name: "Driving", value: 0 };
-      const transitDistance = { name: "Public transport", value: 0 };
+      const transitDistance = { name: "Transit", value: 0 };
       const walkingDistance = { name: "Walking", value: 0 };
       const flyingDistance = { name: "Flying", value: 0 };
 
-      const transitCarbon = { name: "Public transport", carbon: 0 };
+      const transitCarbon = { name: "Transit", carbon: 0 };
       const drivingCarbon = { name: "Driving", carbon: 0 };
       const flyingCarbon = { name: "Flying", carbon: 0 };
 
