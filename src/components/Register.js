@@ -30,7 +30,6 @@ class Register extends Component {
     };
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("Access-Control-Allow-Origin", "*");
     var raw = JSON.stringify(data);
     var requestOptions = {
       method: "POST",
